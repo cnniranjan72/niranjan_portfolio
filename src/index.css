@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* 🌟 Professional Portfolio Design System */
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    /* Cyan Portfolio Palette */
+    --portfolio-primary: 180 100% 50%;
+    --portfolio-primary-light: 180 100% 70%;
+    --portfolio-accent: 200 100% 60%;
+    --portfolio-neutral: 240 10% 8%;
+    --portfolio-surface: 240 10% 6%;
+    --portfolio-text: 0 0% 95%;
+    --portfolio-text-muted: 240 5% 65%;
+
+    /* Design System Tokens */
+    --card: hsl(var(--portfolio-surface));
+    --card-foreground: hsl(var(--portfolio-text));
+    --popover: hsl(var(--portfolio-surface));
+    --popover-foreground: hsl(var(--portfolio-text));
+    --primary: hsl(var(--portfolio-primary));
+    --primary-foreground: hsl(var(--foreground));
+    --secondary: hsl(var(--portfolio-surface));
+    --secondary-foreground: hsl(var(--portfolio-text));
+    --muted: hsl(var(--portfolio-neutral));
+    --muted-foreground: hsl(var(--portfolio-text-muted));
+    --accent: hsl(var(--portfolio-accent));
+    --accent-foreground: hsl(var(--foreground));
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: hsl(var(--foreground));
+    --border: hsl(var(--portfolio-neutral));
+    --input: hsl(var(--portfolio-surface));
+    --ring: hsl(var(--portfolio-primary));
+    --radius: 0.75rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--portfolio-primary)), hsl(var(--portfolio-accent)));
+    --gradient-surface: linear-gradient(145deg, hsl(var(--portfolio-surface)), hsl(var(--portfolio-neutral)));
+    --gradient-hero: linear-gradient(120deg, hsl(var(--portfolio-primary)) 0%, hsl(var(--portfolio-accent)) 100%);
+    --gradient-cyan: linear-gradient(270deg, #00ffff, #0066ff, #00ffff, #0066ff);
+
+    /* Effects & Shadows */
+    --shadow-glow: 0 0 50px rgba(0, 255, 255, 0.3);
+    --shadow-card: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+    --shadow-elevated: 0 8px 40px hsla(0, 0%, 0%, 0.15);
+
+    /* Smooth Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: var(--transition-smooth);
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+    /* 🌌 Cyan animated background */
+    background: var(--gradient-cyan);
+    background-size: 400% 400%;
+    animation: bg-shift 20s ease infinite;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* 🌟 Hover glow for all key interactive elements */
+  a:hover,
+  button:hover,
+  .card:hover,
+  .nav-item:hover,
+  h1:hover,
+  h2:hover,
+  h3:hover,
+  h4:hover,
+  h5:hover,
+  h6:hover {
+    color: hsl(var(--portfolio-primary));
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    transform: translateY(-3px);
+  }
+}
+
+/* ✅ Tailwind utility extensions */
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  .hover-glow:hover {
+    color: hsl(var(--portfolio-primary));
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    transform: translateY(-3px);
+  }
+}
+
+/* 🎬 Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
+}
+
+@keyframes bg-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🚀 Scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌌 Venomous Poison Mist Cursor */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(0,255,0,0.25) 0%, rgba(0,255,0,0.05) 50%, transparent 100%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  filter: blur(40px);
+  transition: transform 0.1s ease, background 0.3s ease, width 0.2s ease, height 0.2s ease;
+}
+
+/* 🌟 Cursor enhancements on hover (optional) */
+.cursor-hover-grow:hover ~ .cursor-glow {
+  transform: scale(1.4);
+}
+
+.cursor-hover-color:hover ~ .cursor-glow {
+  background: radial-gradient(circle, rgba(0,255,50,0.3) 0%, rgba(0,255,50,0.05) 50%, transparent 100%);
+  filter: blur(50px);
+}
+
+/* 🌟 Floating Toolbar Icon Jump */
+.toolbar-icon {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toolbar-icon:hover,
+.toolbar-icon:focus {
+  transform: translateY(-8px) scale(1.1);
+}
+
+.toolbar-icon:active {
+  transform: translateY(-4px) scale(0.95);
+}
