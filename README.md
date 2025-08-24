@@ -28,7 +28,7 @@ I am a 2nd-year CSE student passionate about **web development**, **app developm
 - **Contact Section** – Email, phone, LinkedIn, GitHub, and Resume
 
 ## 🔗 Live Demo
-Check out the live version [here](YOUR_LIVE_LINK)
+Check out the live version [here](https://niranjan-portfolio-phi.vercel.app/)
 
 ## 📁 Repository
 You can find the source code on [GitHub](YOUR_REPO_LINK)
