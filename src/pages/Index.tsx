@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import PortfolioSection from "@/components/PortfolioSection";
+import PortfolioSection from "@/components/Projects";
 import SkillsSection from "@/components/SkillsSection";       // ✅ renamed
 import EducationSection from "@/components/EducationSection"; // ✅ renamed
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FloatingToolbar from "@/components/FloatingToolBar";   // ✅ add this new component
+import FloatingToolbar from "@/components/FloatingToolbar";   // ✅ add this new component
 
 const Index = () => {
   // SEO and Meta Tags

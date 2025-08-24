@@ -63,7 +63,6 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // ✅ Cyan theme
         cyan: {
           DEFAULT: "#00ffff",
           light: "#5efcff",
@@ -89,12 +88,8 @@ const config: Config = {
           "50%": { transform: "translateY(-20px)" },
         },
         "pulse-glow": {
-          "0%, 100%": {
-            boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)",
-          },
-          "50%": {
-            boxShadow: "0 0 40px rgba(0, 255, 255, 0.6)",
-          },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(0, 255, 255, 0.6)" },
         },
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(20px)" },
@@ -105,6 +100,10 @@ const config: Config = {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        ripple: {
+          "0%": { transform: "scale(0)", opacity: "0.6" },
+          "100%": { transform: "scale(6)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -113,6 +112,7 @@ const config: Config = {
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         "fade-in": "fade-in 0.6s ease-out",
         "bg-shift": "bg-shift 12s ease infinite",
+        ripple: "ripple 0.6s ease-out forwards",
       },
       backgroundImage: {
         "cyan-gradient":

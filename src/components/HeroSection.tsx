@@ -63,13 +63,18 @@ const HeroSection = () => {
 
         {/* social icons */}
         <div className="flex justify-center space-x-6">
-          {[ 
+          {[
             { icon: <Github size={26} />, link: "https://github.com/cnniranjan72" },
             { icon: <Linkedin size={26} />, link: "https://www.linkedin.com/in/niranjan-c-n-26a403292" },
-            { icon: <Mail size={26} />, link: "mailto:cnniranjan72@gmail.com" }
+            { icon: <Mail size={26} />, link: "mailto:cnniranjan72@gmail.com" },
           ].map((item, i) => (
             <div key={i} className="hover-block rounded-full">
-              <Button asChild variant="ghost" size="icon" className="hover:text-primary hover:scale-110 transition-all">
+              <Button
+                asChild
+                variant="ghost"
+                size="icon"
+                className="hover:text-primary hover:scale-110 transition-all"
+              >
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.icon}
                 </a>

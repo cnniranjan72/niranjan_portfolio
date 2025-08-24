@@ -23,7 +23,7 @@ const Navigation = () => {
   const navItems = [
     { label: "Home", id: "hero" },
     { label: "About", id: "about" },
-    { label: "Portfolio", id: "portfolio" },
+    { label: "Projects", id: "portfolio" },
     { label: "Skills", id: "skills" },       // ✅ Updated from Services
     { label: "Education", id: "education" }, // ✅ Updated from Testimonials
     { label: "Contact", id: "contact" },

@@ -17,8 +17,6 @@ const PortfolioSection = () => {
         "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
       category: "Web Development",
       tags: ["React.js", "Firebase", "Recharts", "Tesseract.js"],
-      image:
-        "https://images.unsplash.com/photo-1581090700227-4c4f50b1d1f5?auto=format&fit=crop&q=80&w=800&h=600scsrc",
       demoLink: "#",
       codeLink: "#",
     },
@@ -29,8 +27,6 @@ const PortfolioSection = () => {
         "Portal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.",
       category: "Web Development",
       tags: ["React.js", "Firebase Auth", "Firestore"],
-      image:
-        "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=800&h=600",
       demoLink: "#",
       codeLink: "#",
     },
@@ -41,8 +37,6 @@ const PortfolioSection = () => {
         "Cross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.",
       category: "Mobile Apps",
       tags: ["Flutter", "Firebase"],
-      image:
-        "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&q=80&w=800&h=600",
       demoLink: "#",
       codeLink: "#",
     },
@@ -53,8 +47,6 @@ const PortfolioSection = () => {
         "Offline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.",
       category: "PWA",
       tags: ["React.js", "Service Workers", "IndexedDB"],
-      image:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800&h=600",
       demoLink: "#",
       codeLink: "#",
     },
@@ -69,7 +61,7 @@ const PortfolioSection = () => {
     <section id="portfolio" className="py-20 bg-muted/20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Portfolio</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my projects in web, mobile, and progressive apps
           </p>
@@ -94,43 +86,34 @@ const PortfolioSection = () => {
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="group overflow-hidden shadow-card hover-block rounded-xl"
+              className="group overflow-hidden shadow-card hover-block rounded-xl p-6"
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-spring"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center space-x-4">
-                  <Button asChild size="sm" variant="secondary" className="hover-block">
-                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={16} className="mr-2" />
-                      Demo
-                    </a>
-                  </Button>
-                  <Button asChild size="sm" variant="secondary" className="hover-block">
-                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                      <Github size={16} className="mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                </div>
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, tagIndex) => (
+                  <Badge key={tagIndex} variant="secondary" className="text-xs hover-block">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="text-xs hover-block">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+              <div className="flex space-x-4">
+                <Button asChild size="sm" variant="secondary" className="hover-block">
+                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={16} className="mr-2" />
+                    Demo
+                  </a>
+                </Button>
+                <Button asChild size="sm" variant="secondary" className="hover-block">
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                    <Github size={16} className="mr-2" />
+                    Code
+                  </a>
+                </Button>
               </div>
             </Card>
           ))}
