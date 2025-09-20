@@ -1,4 +1,4 @@
-# CN Niranjan Portfolio
+#  Niranjan C N Portfolio
 
 Welcome to my personal portfolio! This site showcases my skills, projects, and ways to connect with me.
 
