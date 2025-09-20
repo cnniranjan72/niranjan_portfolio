@@ -7,7 +7,7 @@ import { ExternalLink, Github } from "lucide-react";
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const categories = ["All", "Web Development", "Mobile Apps", "PWA"];
+  const categories = ["All", "Web Development", "Mobile Apps", "PWA", "AI/ML"];
 
   const projects = [
     {
@@ -18,7 +18,7 @@ const PortfolioSection = () => {
       category: "Web Development",
       tags: ["React.js", "Firebase", "Recharts", "Tesseract.js"],
       demoLink: "#",
-      codeLink: "#",
+      codeLink: "https://github.com/cnniranjan72/KrishiLakshya",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const PortfolioSection = () => {
       category: "Web Development",
       tags: ["React.js", "Firebase Auth", "Firestore"],
       demoLink: "#",
-      codeLink: "#",
+      codeLink: "https://github.com/cnniranjan72/campus-connect",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ const PortfolioSection = () => {
       category: "Mobile Apps",
       tags: ["Flutter", "Firebase"],
       demoLink: "#",
-      codeLink: "#",
+      codeLink: "https://github.com/cnniranjan72/Expense-Tracker",
     },
     {
       id: 4,
@@ -49,6 +49,46 @@ const PortfolioSection = () => {
       tags: ["React.js", "Service Workers", "IndexedDB"],
       demoLink: "#",
       codeLink: "#",
+    },
+    {
+      id: 5,
+      title: "Autonomous Landmine Detector",
+      description:
+        "AI-powered system for detecting buried landmines using CNNs and GPR sensor data. Designed for UAVs and ground robots.",
+      category: "AI/ML",
+      tags: ["Python", "CNN", "TensorFlow", "Robotics"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
+    },
+    {
+      id: 6,
+      title: "VisioNarrate – Image to Story Generator",
+      description:
+        "Generates human-like stories from images using deep learning and NLP pipelines.",
+      category: "AI/ML",
+      tags: ["Python", "NLP", "Vision Transformers"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/VisioNarrate",
+    },
+    {
+      id: 7,
+      title: "GameHive – Gaming Community Platform",
+      description:
+        "Frontend project for a gaming hub where players can share updates, join discussions, and explore trending games.",
+      category: "Web Development",
+      tags: ["React.js", "TailwindCSS"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/GameHive-Frontend-Project",
+    },
+    {
+      id: 8,
+      title: "KisaanMitra – Farmer Support Platform",
+      description:
+        "A platform providing farmers with financial guidance, crop insights, and community support features.",
+      category: "Web Development",
+      tags: ["TypeScript", "Node.js", "MongoDB", "Express"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/Kisaanmitra-",
     },
   ];
 
@@ -63,7 +103,7 @@ const PortfolioSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my projects in web, mobile, and progressive apps
+            A showcase of my projects in web, mobile, AI/ML, and progressive apps
           </p>
         </div>
 
@@ -95,7 +135,11 @@ const PortfolioSection = () => {
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, tagIndex) => (
-                  <Badge key={tagIndex} variant="secondary" className="text-xs hover-block">
+                  <Badge
+                    key={tagIndex}
+                    variant="secondary"
+                    className="text-xs hover-block"
+                  >
                     {tag}
                   </Badge>
                 ))}
@@ -103,13 +147,21 @@ const PortfolioSection = () => {
 
               <div className="flex space-x-4">
                 <Button asChild size="sm" variant="secondary" className="hover-block">
-                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink size={16} className="mr-2" />
                     Demo
                   </a>
                 </Button>
                 <Button asChild size="sm" variant="secondary" className="hover-block">
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github size={16} className="mr-2" />
                     Code
                   </a>

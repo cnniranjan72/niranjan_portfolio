@@ -12,7 +12,7 @@ const SkillsSection = () => {
     {
       icon: <Boxes className="w-10 h-10 text-primary" />,
       title: "Frameworks & Libraries",
-      skills: ["React.js", "Flutter", "Tailwind CSS", "NumPy", "Matplotlib", "shadcn/ui"],
+      skills: ["React.js", "Flutter", "Tailwind CSS", "NumPy", "Matplotlib", "FastAPI","Flask"],
     },
     {
       icon: <Database className="w-10 h-10 text-primary" />,
@@ -22,7 +22,7 @@ const SkillsSection = () => {
     {
       icon: <Wrench className="w-10 h-10 text-primary" />,
       title: "Tools & Platforms",
-      skills: ["Git/GitHub", "Linux", "VS Code", "Android Studio", "Jupyter Notebook"],
+      skills: ["Git/GitHub", "Linux", "VS Code", "Android Studio", "Jupyter Notebook"," Firebase"," Google Colab"," Postman" ],
     },
   ];
 
