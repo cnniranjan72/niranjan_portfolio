@@ -16,7 +16,7 @@ const PortfolioSection = () => {
       description:
         "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
       category: "Web Development",
-      tags: ["React.js", "Firebase", "Recharts", "Tesseract.js"],
+      tags: ["React.js", "Firebase", "Recharts", "PWA"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/KrishiLakshya",
     },
@@ -56,7 +56,7 @@ const PortfolioSection = () => {
       description:
         "AI-powered system for detecting buried landmines using CNNs and GPR sensor data. Designed for UAVs and ground robots.",
       category: "AI/ML",
-      tags: ["Python", "CNN", "TensorFlow", "Robotics"],
+      tags: ["Python", "MongoDB", "Google Collab", "React.js", "Flask"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
     },
@@ -64,9 +64,9 @@ const PortfolioSection = () => {
       id: 6,
       title: "VisioNarrate – Image to Story Generator",
       description:
-        "Generates human-like stories from images using deep learning and NLP pipelines.",
+        "Generates human-like stories from images using machiene learning.",
       category: "AI/ML",
-      tags: ["Python", "NLP", "Vision Transformers"],
+      tags: ["Python" , "MongoDB", "Google Collab", "React.js", "Flask"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/VisioNarrate",
     },
