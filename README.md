@@ -3,7 +3,7 @@
 Welcome to my personal portfolio! This site showcases my skills, projects, and ways to connect with me.
 
 ## 🚀 About Me
-I am a 2nd-year CSE student passionate about **web development**, **app development**, and **AI/ML**. I enjoy building interactive, responsive, and modern web applications with clean UI and smooth animations.
+I am a 3rd-year CSE student passionate about **web development**, **app development**, and **AI/ML**. I focus on building modern web applications targetting Real-world problems.
 
 ## 💻 Tech Stack
 - **Frontend:** React, TypeScript, Tailwind CSS
@@ -21,7 +21,7 @@ I am a 2nd-year CSE student passionate about **web development**, **app developm
 - Smooth scrolling animations
 
 ## 📂 Sections
-- **Hero Section** – Introduction and quick links
+- **Home Page Section** – Introduction and quick links
 - **About Section** – Personal info and skills
 - **Projects Section** – My projects with descriptions and links
 - **Skills Section** – Tech skills with experience level
@@ -31,7 +31,7 @@ I am a 2nd-year CSE student passionate about **web development**, **app developm
 Check out the live version [here](https://niranjan-portfolio-phi.vercel.app/)
 
 ## 📁 Repository
-You can find the source code on [GitHub](YOUR_REPO_LINK)
+You can find the source code on [GitHub]([YOUR_REPO_LINK](https://github.com/cnniranjan72/niranjan_portfolio/))
 
 ## 📫 Contact Me
 - Email: [cnniranjan72@gmail.com](mailto:cnniranjan72@gmail.com)
