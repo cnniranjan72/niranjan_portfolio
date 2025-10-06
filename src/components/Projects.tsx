@@ -15,7 +15,7 @@ const PortfolioSection = () => {
       title: "Autonomous Landmine Detector",
       description:
         "AI-powered system for detecting buried landmines using CNNs and GPR sensor data. Designed for UAVs and ground robots.",
-      category: "AI/ML",
+      category: ["AI/ML"],
       tags: ["Python", "MongoDB", "Google Collab", "React.js", "Flask"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
@@ -25,8 +25,17 @@ const PortfolioSection = () => {
       title: "AgriMind – Smart Farming Assistant",
       description:
         "A modern AI-powered platform for farmers that provides insights, predictions, and community features for sustainable farming.",
-      category: "Web Development",
-      tags: ["React.js", "PostgreSQL", "ML", "AI", "Flask"," TailwindCSS", "Vercel", "Render"],
+      category: ["Web Development", "AI/ML"],
+      tags: [
+        "React.js",
+        "PostgreSQL",
+        "ML",
+        "AI",
+        "Flask",
+        "TailwindCSS",
+        "Vercel",
+        "Render",
+      ],
       demoLink: "https://agrimind-frontend.vercel.app/",
       codeLink: "https://github.com/cnniranjan72/AgriMind",
     },
@@ -35,7 +44,7 @@ const PortfolioSection = () => {
       title: "VisioNarrate – Image to Story Generator",
       description:
         "Generates human-like stories from images using machine learning and NLP-based storytelling models.",
-      category: "AI/ML",
+      category: ["AI/ML"],
       tags: ["Python", "MongoDB", "Google Collab", "React.js", "Flask"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/VisioNarrate",
@@ -45,7 +54,7 @@ const PortfolioSection = () => {
       title: "KisaanMitra – Farmer Support Platform",
       description:
         "A platform providing farmers with financial guidance, crop insights, and community support features.",
-      category: "Web Development",
+      category: ["Web Development"],
       tags: ["TypeScript", "Node.js", "MongoDB", "Express"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/Kisaanmitra-",
@@ -55,7 +64,7 @@ const PortfolioSection = () => {
       title: "KrishiLakshya – Financial Tracker for Farmers",
       description:
         "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
-      category: "Web Development",
+      category: ["Web Development"],
       tags: ["React.js", "Firebase", "Recharts", "PWA"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/KrishiLakshya",
@@ -65,7 +74,7 @@ const PortfolioSection = () => {
       title: "CampusConnect – College Information Portal",
       description:
         "Portal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.",
-      category: "Web Development",
+      category: ["Web Development"],
       tags: ["React.js", "Firebase Auth", "Firestore"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/campus-connect",
@@ -75,7 +84,7 @@ const PortfolioSection = () => {
       title: "MyExpenseMate – Personal Expense Tracker",
       description:
         "Cross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.",
-      category: "Mobile Apps",
+      category: ["Mobile Apps"],
       tags: ["Flutter", "Firebase"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/Expense-Tracker",
@@ -85,7 +94,7 @@ const PortfolioSection = () => {
       title: "QuickNotes – Minimalist Notes PWA",
       description:
         "Offline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.",
-      category: "PWA",
+      category: ["PWA"],
       tags: ["React.js", "Service Workers", "IndexedDB"],
       demoLink: "#",
       codeLink: "#",
@@ -95,7 +104,7 @@ const PortfolioSection = () => {
       title: "GameHive – Gaming Community Platform",
       description:
         "Frontend project for a gaming hub where players can share updates, join discussions, and explore trending games.",
-      category: "Web Development",
+      category: ["Web Development"],
       tags: ["React.js", "TailwindCSS"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/GameHive-Frontend-Project",
@@ -105,7 +114,9 @@ const PortfolioSection = () => {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((project) => project.category === activeFilter);
+      : projects.filter((project) =>
+          project.category.includes(activeFilter)
+        );
 
   return (
     <section id="portfolio" className="py-20 bg-muted/20">
