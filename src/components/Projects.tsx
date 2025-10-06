@@ -12,46 +12,6 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      title: "KrishiLakshya – Financial Tracker for Farmers",
-      description:
-        "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
-      category: "Web Development",
-      tags: ["React.js", "Firebase", "Recharts", "PWA"],
-      demoLink: "#",
-      codeLink: "https://github.com/cnniranjan72/KrishiLakshya",
-    },
-    {
-      id: 2,
-      title: "CampusConnect – College Information Portal",
-      description:
-        "Portal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.",
-      category: "Web Development",
-      tags: ["React.js", "Firebase Auth", "Firestore"],
-      demoLink: "#",
-      codeLink: "https://github.com/cnniranjan72/campus-connect",
-    },
-    {
-      id: 3,
-      title: "MyExpenseMate – Personal Expense Tracker",
-      description:
-        "Cross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.",
-      category: "Mobile Apps",
-      tags: ["Flutter", "Firebase"],
-      demoLink: "#",
-      codeLink: "https://github.com/cnniranjan72/Expense-Tracker",
-    },
-    {
-      id: 4,
-      title: "QuickNotes – Minimalist Notes PWA",
-      description:
-        "Offline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.",
-      category: "PWA",
-      tags: ["React.js", "Service Workers", "IndexedDB"],
-      demoLink: "#",
-      codeLink: "#",
-    },
-    {
-      id: 5,
       title: "Autonomous Landmine Detector",
       description:
         "AI-powered system for detecting buried landmines using CNNs and GPR sensor data. Designed for UAVs and ground robots.",
@@ -61,27 +21,27 @@ const PortfolioSection = () => {
       codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
     },
     {
-      id: 6,
+      id: 2,
+      title: "AgriMind – Smart Farming Assistant",
+      description:
+        "A modern AI-powered platform for farmers that provides insights, predictions, and community features for sustainable farming.",
+      category: "Web Development",
+      tags: ["React.js", "PostgreSQL", "ML", "AI", "Flask"," TailwindCSS", "Vercel", "Render"],
+      demoLink: "https://agrimind-frontend.vercel.app/",
+      codeLink: "https://github.com/cnniranjan72/AgriMind",
+    },
+    {
+      id: 3,
       title: "VisioNarrate – Image to Story Generator",
       description:
-        "Generates human-like stories from images using machiene learning.",
+        "Generates human-like stories from images using machine learning and NLP-based storytelling models.",
       category: "AI/ML",
-      tags: ["Python" , "MongoDB", "Google Collab", "React.js", "Flask"],
+      tags: ["Python", "MongoDB", "Google Collab", "React.js", "Flask"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/VisioNarrate",
     },
     {
-      id: 7,
-      title: "GameHive – Gaming Community Platform",
-      description:
-        "Frontend project for a gaming hub where players can share updates, join discussions, and explore trending games.",
-      category: "Web Development",
-      tags: ["React.js", "TailwindCSS"],
-      demoLink: "#",
-      codeLink: "https://github.com/cnniranjan72/GameHive-Frontend-Project",
-    },
-    {
-      id: 8,
+      id: 4,
       title: "KisaanMitra – Farmer Support Platform",
       description:
         "A platform providing farmers with financial guidance, crop insights, and community support features.",
@@ -89,6 +49,56 @@ const PortfolioSection = () => {
       tags: ["TypeScript", "Node.js", "MongoDB", "Express"],
       demoLink: "#",
       codeLink: "https://github.com/cnniranjan72/Kisaanmitra-",
+    },
+    {
+      id: 5,
+      title: "KrishiLakshya – Financial Tracker for Farmers",
+      description:
+        "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
+      category: "Web Development",
+      tags: ["React.js", "Firebase", "Recharts", "PWA"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/KrishiLakshya",
+    },
+    {
+      id: 6,
+      title: "CampusConnect – College Information Portal",
+      description:
+        "Portal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.",
+      category: "Web Development",
+      tags: ["React.js", "Firebase Auth", "Firestore"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/campus-connect",
+    },
+    {
+      id: 7,
+      title: "MyExpenseMate – Personal Expense Tracker",
+      description:
+        "Cross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.",
+      category: "Mobile Apps",
+      tags: ["Flutter", "Firebase"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/Expense-Tracker",
+    },
+    {
+      id: 8,
+      title: "QuickNotes – Minimalist Notes PWA",
+      description:
+        "Offline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.",
+      category: "PWA",
+      tags: ["React.js", "Service Workers", "IndexedDB"],
+      demoLink: "#",
+      codeLink: "#",
+    },
+    {
+      id: 9,
+      title: "GameHive – Gaming Community Platform",
+      description:
+        "Frontend project for a gaming hub where players can share updates, join discussions, and explore trending games.",
+      category: "Web Development",
+      tags: ["React.js", "TailwindCSS"],
+      demoLink: "#",
+      codeLink: "https://github.com/cnniranjan72/GameHive-Frontend-Project",
     },
   ];
 
