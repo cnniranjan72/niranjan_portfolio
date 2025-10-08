@@ -17,7 +17,7 @@ const SkillsSection = () => {
     {
       icon: <Database className="w-10 h-10 text-primary" />,
       title: "Databases",
-      skills: ["MySQL", "MongoDB", "Firestore"],
+      skills: ["MySQL", "MongoDB", "Firestore", "PostgreSQL" ,"SQLite"],
     },
     {
       icon: <Wrench className="w-10 h-10 text-primary" />,
