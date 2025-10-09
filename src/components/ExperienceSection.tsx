@@ -1,124 +1,50 @@
-import { useEffect } from "react";
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import PortfolioSection from "@/components/Projects";
-import SkillsSection from "@/components/SkillsSection";
-import ExperienceSection from "@/components/ExperienceSection"; // ✅ Added
-import EducationSection from "@/components/EducationSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import FloatingToolbar from "@/components/FloatingToolbar";
+import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
-const Index = () => {
-  useEffect(() => {
-    document.title = "Niranjan C N - Computer Science Engineer | Portfolio";
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Portfolio of Niranjan C N - Computer Science Engineer specializing in web, app, and full-stack development. Available for internships and projects."
-      );
-    }
-
-    const existingKeywords = document.querySelector('meta[name="keywords"]');
-    if (!existingKeywords) {
-      const keywordsMeta = document.createElement("meta");
-      keywordsMeta.name = "keywords";
-      keywordsMeta.content =
-        "Niranjan C N, computer science engineer, web developer, app developer, React developer, portfolio, full-stack developer, internships, projects";
-      document.head.appendChild(keywordsMeta);
-    }
-
-    const existingCanonical = document.querySelector('link[rel="canonical"]');
-    if (!existingCanonical) {
-      const canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      canonical.href = window.location.href;
-      document.head.appendChild(canonical);
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute(
-        "content",
-        "Niranjan C N - Computer Science Engineer Portfolio"
-      );
-    }
-
-    const ogDescription = document.querySelector(
-      'meta[property="og:description"]'
-    );
-    if (ogDescription) {
-      ogDescription.setAttribute(
-        "content",
-        "Portfolio showcasing projects in web development, app development, and full-stack engineering. Available for internships and collaborations."
-      );
-    }
-
-    // Scroll animations
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    });
-
-    const animateElements = document.querySelectorAll(".animate-on-scroll");
-    animateElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
+const ExperienceSection = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Top Navigation */}
-      <Navigation />
+    <section
+      id="experience"
+      className="py-16 px-4 md:px-8 lg:px-20 bg-muted/40"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        Experience
+      </h2>
 
-      {/* Main Content */}
-      <main>
-        <HeroSection />
+      <div className="max-w-3xl mx-auto">
+        <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="flex items-center gap-4 mb-4">
+            <Briefcase className="w-6 h-6 text-primary" />
+            <h3 className="text-xl font-semibold">
+              Software Developer Engineer (Intern)
+            </h3>
+          </div>
 
-        <div className="animate-on-scroll">
-          <AboutSection />
-        </div>
+          <p className="text-lg text-white mb-2">
+            <strong>Company:</strong> AeroAspire
+          </p>
 
-        <div className="animate-on-scroll">
-          <PortfolioSection />
-        </div>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-white mb-3">
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <span>September 2025 – Present</span>
+            </div>
 
-        <div className="animate-on-scroll">
-          <SkillsSection />
-        </div>
+            <div className="flex items-center gap-2 mt-2 sm:mt-0">
+              <MapPin className="w-4 h-4" />
+              <span>Bengaluru, Karnataka, India (Hybrid)</span>
+            </div>
+          </div>
 
-        {/* ✅ Experience Section */}
-        <div className="animate-on-scroll">
-          <ExperienceSection />
-        </div>
-
-        <div className="animate-on-scroll">
-          <EducationSection />
-        </div>
-
-        <div className="animate-on-scroll">
-          <ContactSection />
-        </div>
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Toolbar */}
-      <FloatingToolbar />
-    </div>
+          <p className="text-gray-700 leading-relaxed">
+            As a Software Developer Engineer Intern at AeroAspire, I work on
+            building scalable and efficient software solutions. My focus is on
+            full-stack web development.
+          </p>
+        </Card>
+      </div>
+    </section>
   );
 };
 
-export default Index;
+export default ExperienceSection;

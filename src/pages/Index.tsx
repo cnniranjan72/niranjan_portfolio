@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/Projects";
 import SkillsSection from "@/components/SkillsSection";
-import ExperienceSection from "@/components/ExperienceSection"; // ✅ Added
 import EducationSection from "@/components/EducationSection";
+import ExperienceSection from "@/components/ExperienceSection"; // ✅ Added new import
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FloatingToolbar from "@/components/FloatingToolbar";
@@ -14,91 +13,61 @@ const Index = () => {
   useEffect(() => {
     document.title = "Niranjan C N - Computer Science Engineer | Portfolio";
 
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Portfolio of Niranjan C N - Computer Science Engineer specializing in web, app, and full-stack development. Available for internships and projects."
-      );
-    }
+    const updateMeta = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("name", name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute("content", content);
+    };
 
-    const existingKeywords = document.querySelector('meta[name="keywords"]');
-    if (!existingKeywords) {
-      const keywordsMeta = document.createElement("meta");
-      keywordsMeta.name = "keywords";
-      keywordsMeta.content =
-        "Niranjan C N, computer science engineer, web developer, app developer, React developer, portfolio, full-stack developer, internships, projects";
-      document.head.appendChild(keywordsMeta);
-    }
+    updateMeta(
+      "description",
+      "Portfolio of Niranjan C N - Computer Science Engineer specializing in web, app, and full-stack development."
+    );
 
-    const existingCanonical = document.querySelector('link[rel="canonical"]');
-    if (!existingCanonical) {
+    updateMeta(
+      "keywords",
+      "Niranjan C N, computer science engineer, web developer, app developer, React developer, portfolio, full-stack developer, internships, projects"
+    );
+
+    if (!document.querySelector('link[rel="canonical"]')) {
       const canonical = document.createElement("link");
       canonical.rel = "canonical";
       canonical.href = window.location.href;
       document.head.appendChild(canonical);
     }
 
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute(
-        "content",
-        "Niranjan C N - Computer Science Engineer Portfolio"
-      );
-    }
-
-    const ogDescription = document.querySelector(
-      'meta[property="og:description"]'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
-    if (ogDescription) {
-      ogDescription.setAttribute(
-        "content",
-        "Portfolio showcasing projects in web development, app development, and full-stack engineering. Available for internships and collaborations."
-      );
-    }
 
-    // Scroll animations
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    });
-
-    const animateElements = document.querySelectorAll(".animate-on-scroll");
-    animateElements.forEach((el) => observer.observe(el));
+    const animatedElements = document.querySelectorAll(".animate-on-scroll");
+    animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Top Navigation */}
-      <Navigation />
 
-      {/* Main Content */}
+
       <main>
         <HeroSection />
 
         <div className="animate-on-scroll">
           <AboutSection />
         </div>
-
-        <div className="animate-on-scroll">
-          <PortfolioSection />
-        </div>
-
-        <div className="animate-on-scroll">
-          <SkillsSection />
-        </div>
-
-        {/* ✅ Experience Section */}
+        {/* ✅ Added Experience section here */}
         <div className="animate-on-scroll">
           <ExperienceSection />
         </div>
@@ -106,16 +75,22 @@ const Index = () => {
         <div className="animate-on-scroll">
           <EducationSection />
         </div>
+        <div className="animate-on-scroll">
+          <SkillsSection />
+        </div>
+        
+        <div className="animate-on-scroll">
+          <PortfolioSection />
+        </div>
 
+        
         <div className="animate-on-scroll">
           <ContactSection />
         </div>
+        
       </main>
 
-      {/* Footer */}
       <Footer />
-
-      {/* Floating Toolbar */}
       <FloatingToolbar />
     </div>
   );
