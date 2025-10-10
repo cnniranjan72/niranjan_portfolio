@@ -1,6 +1,20 @@
 import { useEffect, useState } from "react";
-import { Home, User, FolderOpen, BookOpen, Mail } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Home,
+  User,
+  Briefcase,
+  BookOpen,
+  Wrench,
+  FolderOpen,
+  Mail,
+  Cpu,
+} from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const FloatingToolbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -8,10 +22,12 @@ const FloatingToolbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -20,11 +36,14 @@ const FloatingToolbar = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // ✅ Reordered items as requested:
+  // About → Experience → Education → Skills → Projects → Contact
   const navItems = [
-    { icon: <Home size={22} />, id: "hero", label: "Home" },
     { icon: <User size={22} />, id: "about", label: "About" },
-    { icon: <FolderOpen size={22} />, id: "portfolio", label: "Projects" },
+    { icon: <Briefcase size={22} />, id: "experience", label: "Experience" },
     { icon: <BookOpen size={22} />, id: "education", label: "Education" },
+    { icon: <Wrench size={22} />, id: "skills", label: "Skills" },
+    { icon: <Cpu size={22} />, id: "portfolio", label: "Projects" },
     { icon: <Mail size={22} />, id: "contact", label: "Contact" },
   ];
 
@@ -59,7 +78,6 @@ const FloatingToolbar = () => {
                   </button>
                 </TooltipTrigger>
 
-                {/* Tooltip Content appearing above icon */}
                 <TooltipContent
                   side="top"
                   className="

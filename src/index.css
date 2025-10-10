@@ -156,3 +156,43 @@
   z-index: 9999;
   transition: background 0.2s ease;
 }
+/* ✨ Tooltip Pop-up Animation (Centered Fade + Scale) */
+@keyframes tooltip-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tooltip-fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+/* 🪄 Apply animations when tooltip opens/closes */
+[data-state='open'].animate-tooltip-in {
+  animation: tooltip-fade-in 0.25s ease-out forwards;
+}
+
+[data-state='closed'].animate-tooltip-out {
+  animation: tooltip-fade-out 0.2s ease-in forwards;
+}
+
+/* Override Radix directional slide animations */
+[data-side='top'],
+[data-side='bottom'],
+[data-side='left'],
+[data-side='right'] {
+  transform: none !important;
+}
+
