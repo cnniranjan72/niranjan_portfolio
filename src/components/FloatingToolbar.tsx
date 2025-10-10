@@ -37,8 +37,9 @@ const FloatingToolbar = () => {
   };
 
   // ✅ Reordered items as requested:
-  // About → Experience → Education → Skills → Projects → Contact
+
   const navItems = [
+    { icon: <Home size={22} />, id: "hero", label: "Home" },    
     { icon: <User size={22} />, id: "about", label: "About" },
     { icon: <Briefcase size={22} />, id: "experience", label: "Experience" },
     { icon: <BookOpen size={22} />, id: "education", label: "Education" },
