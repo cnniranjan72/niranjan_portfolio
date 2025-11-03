@@ -5,7 +5,7 @@ const Footer = () => {
     { icon: <Mail size={24} />, href: "mailto:cnniranjan72@gmail.com", label: "Email" },
     { icon: <Linkedin size={24} />, href: "https://www.linkedin.com/in/niranjan-c-n", label: "LinkedIn" },
     { icon: <Github size={24} />, href: "https://github.com/cnniranjan72", label: "GitHub" },
-    { icon: <FileText size={24} />, href: "/Resume_NiranjanCN.pdf", label: "Resume" },
+    { icon: <FileText size={24} />, href: "../public/resume/NiranjanCN-Resume.pdf", label: "Resume" },
   ];
 
   return (
