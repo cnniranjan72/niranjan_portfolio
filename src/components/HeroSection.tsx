@@ -53,7 +53,7 @@ const HeroSection = () => {
               className="flex items-center gap-2 hover:scale-105 transition-spring"
               asChild
             >
-              <a href="../public/NiranjanCN-Resume.pdf" target="_blank">
+              <a href="../resume/NiranjanCN-Resume.pdf" target="_blank">
                 <FileDown size={20} />
                 Resume
               </a>
