@@ -7,22 +7,41 @@ const SkillsSection = () => {
     {
       icon: <Code2 className="w-10 h-10 text-primary" />,
       title: "Programming Languages",
-      skills: ["C", "C++", "Java", "Python", "Dart", "JavaScript", "TypeScript"],
+      skills: ["C", "C++", "Java", "Python", "JavaScript", "Dart", "HTML", "CSS"],
     },
     {
       icon: <Boxes className="w-10 h-10 text-primary" />,
       title: "Frameworks & Libraries",
-      skills: ["React.js", "Flutter", "Tailwind CSS", "NumPy", "Matplotlib", "FastAPI","Flask"],
+      skills: [
+        "React.js",
+        "Flutter",
+        "FastAPI",
+        "Flask",
+        "Node.js",
+        "Scikit-learn",
+        "RAG Pipelines",
+      ],
     },
     {
       icon: <Database className="w-10 h-10 text-primary" />,
       title: "Databases",
-      skills: ["MySQL", "MongoDB", "Firestore", "PostgreSQL" ,"SQLite"],
+      skills: ["PostgreSQL", "MongoDB", "MySQL", "Firestore", "SQLite"],
     },
     {
       icon: <Wrench className="w-10 h-10 text-primary" />,
       title: "Tools & Platforms",
-      skills: ["Git/GitHub", "Linux", "VS Code", "Android Studio", "Jupyter Notebook"," Firebase"," Google Colab"," Postman" ],
+      skills: [
+        "Git",
+        "Docker",
+        "Linux",
+        "Postman",
+        "Swagger",
+        "Playwright",
+        "Vercel",
+        "Render",
+        "Railway",
+        "Firecrawl",
+      ],
     },
   ];
 

@@ -5,42 +5,56 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 
 const PortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Featured");
 
-  const categories = ["All", "Web Development", "Mobile Apps", "PWA", "AI/ML"];
+  const categories = [
+    "All",
+    "Featured",
+    "Web Development",
+    "Mobile Apps",
+    "PWA",
+    "AI/ML",
+  ];
 
   const projects = [
     {
       id: 1,
-      title: "Autonomous Landmine Detector",
+      title: "CIVITAS — AI Smart City Digital Twin",
       description:
-        "AI-powered system for detecting buried landmines using CNNs and GPR sensor data. Designed for UAVs and ground robots.",
-      category: ["AI/ML"],
-      tags: ["Python", "MongoDB", "Google Collab", "React.js", "Flask"],
+        "AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling that optimizes policy trade-offs.",
+      category: ["Featured", "AI/ML"],
+      tags: ["Reinforcement Learning", "FastAPI", "Simulation", "LLM"],
       demoLink: "#",
-      codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
+      codeLink: "https://github.com/cnniranjan72/civitas",
     },
     {
       id: 2,
-      title: "AgriMind – Smart Farming Assistant",
+      title: "IntelliMine — Autonomous Landmine Detection",
       description:
-        "A modern AI-powered platform for farmers that provides insights, predictions, and community features for sustainable farming.",
-      category: ["Web Development", "AI/ML"],
+        "Random Forest + PCA pipelines with severity scoring, 98.2% detection rate, and A* safe path planning.",
+      category: ["Featured", "AI/ML"],
+      tags: ["Random Forest", "React.js", "Flask", "MongoDB", "JWT"],
+      demoLink: "https://intellimine.vercel.app",
+      codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
+    },
+    {
+      id: 3,
+      title: "AgriMind — AI Crop & Yield Platform",
+      description:
+        "ML-driven crop recommendation + yield prediction across 30+ crops with 96.8% model accuracy.",
+      category: ["Featured", "Web Development", "AI/ML"],
       tags: [
         "React.js",
-        "PostgreSQL",
-        "ML",
-        "AI",
         "Flask",
-        "TailwindCSS",
-        "Vercel",
-        "Render",
+        "PostgreSQL",
+        "ML Pipelines",
+        "Authentication",
       ],
       demoLink: "https://agrimind-frontend.vercel.app/",
       codeLink: "https://github.com/cnniranjan72/AgriMind",
     },
     {
-      id: 3,
+      id: 10,
       title: "VisioNarrate – Image to Story Generator",
       description:
         "Generates human-like stories from images using machine learning and NLP-based storytelling models.",

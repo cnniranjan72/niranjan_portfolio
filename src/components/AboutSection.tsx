@@ -5,23 +5,25 @@ const AboutSection = () => {
   const highlights = [
     {
       icon: <Code className="w-8 h-8 text-primary" />,
-      title: "Developer",
-      description: "Skilled in full-stack development for web applications.",
+      title: "Full-Stack Engineer",
+      description: "Ship production-grade web, mobile, and platform experiences.",
     },
     {
       icon: <Palette className="w-8 h-8 text-primary" />,
-      title: "Creator",
-      description: "Built apps and platforms that solve real-world problems.",
+      title: "AI & Data Systems",
+      description: "Build reinforcement-learning simulations and ML pipelines.",
     },
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Learner",
-      description: "Exploring AI, ML, and modern software engineering practices.",
+      title: "System Designer",
+      description:
+        "Architect scalable, reliable infrastructures for aviation and enterprise teams.",
     },
     {
       icon: <Users className="w-8 h-8 text-primary" />,
-      title: "Collaborator",
-      description: "Thrives in team environments, hackathons, and open projects.",
+      title: "Collaborative Builder",
+      description:
+        "Partner with cross-functional teams, open-source communities, and clients.",
     },
   ];
 
@@ -30,8 +32,8 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            I’m Niranjan, a Computer Science student passionate about building smart, scalable, and meaningful digital solutions.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Computer Science undergraduate and Software Engineer delivering production-grade full-stack and AI-driven systems across aviation and enterprise platforms.
           </p>
         </div>
 
@@ -39,8 +41,7 @@ const AboutSection = () => {
           {/* Short Bio */}
           <div className="text-center lg:text-left space-y-6">
             <p className="text-muted-foreground leading-relaxed">
-              I enjoy creating impactful products — intelligent web platforms. <br></br><br></br>
-              My focus lies in combining code, creativity, and problem-solving to make technology useful and accessible.
+              I build reinforcement-learning simulations, ML pipelines, and secure cloud-native products that achieve 98%+ detection accuracy and measurable business outcomes. My foundation in data structures, algorithms, and scalable system design helps me translate ambiguous requirements into robust, production-ready experiences.
             </p>
           </div>
 

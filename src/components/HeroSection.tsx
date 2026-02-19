@@ -22,7 +22,7 @@ const HeroSection = () => {
 
         {/* subtitle */}
         <p className="text-lg md:text-xl text-muted-foreground mb-10 hover-block px-3 py-1 rounded-lg inline-block">
-          Computer Science Engineer
+          CS undergraduate building production-grade full-stack & AI-driven systems
         </p>
 
         {/* action buttons */}
@@ -65,7 +65,7 @@ const HeroSection = () => {
         <div className="flex justify-center space-x-6">
           {[
             { icon: <Github size={26} />, link: "https://github.com/cnniranjan72" },
-            { icon: <Linkedin size={26} />, link: "https://www.linkedin.com/in/niranjan-c-n-26a403292" },
+            { icon: <Linkedin size={26} />, link: "https://www.linkedin.com/in/niranjan-c-n" },
             { icon: <Mail size={26} />, link: "mailto:cnniranjan72@gmail.com" },
           ].map((item, i) => (
             <div key={i} className="hover-block rounded-full">
