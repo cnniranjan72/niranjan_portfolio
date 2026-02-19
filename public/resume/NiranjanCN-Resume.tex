@@ -1,120 +1,113 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage[a4paper,margin=0.65in]{geometry}
+
+\usepackage[a4paper,margin=0.55in]{geometry}
 \usepackage{enumitem}
 \usepackage[colorlinks=true, urlcolor=blue]{hyperref}
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{fontawesome}
-\usepackage{xcolor}
-\usepackage{mathptmx} % Times New Roman font
-\usepackage{parskip} % For spacing between paragraphs
-\usepackage{ragged2e} % For justified text
+\usepackage{mathptmx}
 
-% Section spacing
-\titlespacing{\section}{0pt}{3pt plus 1pt minus 1pt}{3pt plus 1pt minus 1pt}
-\setstretch{0.45}
+\pagestyle{empty}
+
+% ---------- Balanced readable spacing ----------
+\setstretch{0.93}
 \setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=10pt, itemsep=0.5pt, topsep=0.4pt}
 
-% Horizontal line command
-\newcommand{\sectionline}{\noindent\rule{\linewidth}{0.4pt}\vspace{1pt}}
+% ---------- Section style ----------
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
+\newcommand{\sectionline}{\vspace{-6pt}\noindent\rule{\linewidth}{0.5pt}\vspace{1.5pt}}
 
 \begin{document}
 
-%--------------------
-% Header
-%--------------------
+% ---------- HEADER ----------
 \begin{center}
-    {\LARGE \textbf{Niranjan C N}}\\
-    \vspace{4pt}
-    \faPhone\ \href{tel:+919108269436}{+91 9108269436} \quad
-    \faEnvelope\ \href{mailto:cnniranjan72@gmail.com}{cnniranjan72@gmail.com} \quad
-    \faLinkedinSquare\ \href{https://linkedin.com/in/niranjan-c-n}{linkedin.com/in/niranjan-c-n} \quad
-    \faGithub\href{https://github.com/cnniranjan72}{github.com/cnniranjan72}
+{\LARGE \textbf{Niranjan C N}}\\[3pt]
+\faPhone\ \href{tel:+919108269436}{+91 9108269436} \quad
+\faEnvelope\ \href{mailto:cnniranjan72@gmail.com}{cnniranjan72@gmail.com} \quad
+\faLinkedinSquare\ \href{https://linkedin.com/in/niranjan-c-n}{linkedin.com/in/niranjan-c-n} \hfill
+\faGithub\ \href{https://github.com/cnniranjan72}{github.com/cnniranjan72}
 \end{center}
 \sectionline
 
-%--------------------
-% Career Objective
-%--------------------
-\section*{\faBullseye\ Career Objective}
-\justifying
-Motivated and detail-oriented Computer Science undergraduate and aspiring Software Engineer with strong problem-solving skills and expertise in algorithms, data structures, and full-stack development. Proficient in Python, C++, Java, JavaScript, and Dart, with practical experience in frameworks like React.js and Flutter. Skilled in building scalable, cross-platform applications and data-driven solutions using Firebase, Firestore, and MongoDB. Passionate about creating practical, impactful tech solutions and continuously enhancing technical knowledge.
+% ---------- SUMMARY ----------
+\section*{\faBullseye\ Summary}
+Computer Science undergraduate and Software Engineer delivering production-grade full-stack and AI-driven systems across aviation and enterprise platforms. Built reinforcement-learning simulations and ML pipelines achieving 98\%+ detection accuracy, with strong foundation in data structures, algorithms, and scalable system design.
 
 \sectionline
 
-%--------------------
-% Education
-%--------------------
+% ---------- EDUCATION ----------
 \section*{\faGraduationCap\ Education}
-\justifying
-\textbf{AMC Engineering College}, Bangalore, Karnataka \\
-\textit{B.E. in Computer Science and Engineering, CGPA: 8.5} \hfill 2023–2027 \\
-\textbf{Coursework:} Data Structures, Operating Systems, DBMS, Theory of Computation, Algorithms, Computer Networks, AI, Software Engineering.
+\textbf{AMC Engineering College — B.E. Computer Science (CGPA: 8.5)} \hfill \textit{2023 – 2027}
 
 \sectionline
-
-%--------------------
-% Experience
-%--------------------
+% ---------- EXPERIENCE ----------
 \section*{\faBriefcase\ Experience}
-\justifying
-\textbf{Software Development Engineer Intern – AeroAspire} \hfill \textit{Sep 2025 – Nov 2025}\\
-Worked on React and Flask-based full stack development, comprising Docker and SQLite DB integration.
+
+\textbf{Software Development Engineer (Contract), AeroAspire — Remote} \hfill \textit{Oct 2025 – Present}
+\begin{itemize}
+\item Own development of \textbf{AeroBriefs}, a production aviation weather briefing platform centralizing operational data for pilot and ATC workflows.
+\item Architected and deployed a real-time end-to-end system using \textbf{Flutter, Firebase, and Firestore}, ensuring reliable synchronization, scalability, and aviation-grade robustness.
+\end{itemize}
+
+\textbf{Software Development Engineer Intern, AeroAspire — Remote} \hfill \textit{Sep 2025 – Oct 2025}
+\begin{itemize}
+\item Built and integrated full-stack modules using \textbf{React, Flask, Docker, and SQLite}, contributing to testing pipelines and production feature releases.
+\end{itemize}
+
+\textbf{Software Development Engineer (Consultant), Tribeca Softech — Remote} \hfill \textit{Jan 2026 – Present}
+\begin{itemize}
+\item Developed enterprise \textbf{IT risk governance platform components} using \textbf{React, RAG pipelines, FastAPI, and DataGol}, enabling structured knowledge retrieval and analytics insights.
+\item Engineered a \textbf{LinkedIn trusted-network intelligence browser extension} with \textbf{JavaScript DOM extraction}, \textbf{FastAPI}, \textbf{PostgreSQL (Neon)}, and \textbf{JWT} for automated profile analysis and outreach generation.
+\end{itemize}
 
 \sectionline
 
-%--------------------
-% Skills
-%--------------------
-\section*{\faCode\ Skills}
-\justifying
-\vspace{-6pt}
-\setstretch{0.9}
-\textbf{\faKeyboardO\ Languages:} C, C++, Java, Python, Dart, JavaScript, HTML, CSS \\[2pt]
-\textbf{\faCogs\ Frameworks \& Libraries:} React.js, Flask, Flutter, FastAPI, Node.js \\[2pt]
-\textbf{\faDatabase\ Databases:} MySQL, MongoDB, Firestore, SQLite, PostgreSQL \\[2pt]
-\textbf{\faWrench\ Tools:} Git/GitHub, Linux, VS Code, Android Studio, Jupyter Notebook, Postman, Swagger, Docker
-\vspace{2pt}
-\setstretch{1.05}
 
-\sectionline
-
-%--------------------
-% Projects
-%--------------------
+% ---------- PROJECTS ----------
 \section*{\faFolderOpen\ Projects}
-\justifying
-• \textbf{IntelliMine – Autonomous Landmine Detection System} \hfill
-\href{https://github.com/cnniranjan72/Autonomous-Landmine-detector}{\faGithub} \\[2pt]
-\textit{AI-based landmine detection system integrating ML, Flask, and React.}\\
-Performs real-time landmine classification using Logistic Regression + PCA with JWT-secured backend and responsive dashboard.\\[2pt]
-\textbf{Tech Stack:} React, Flask, MongoDB, Scikit-learn, Render, Vercel
-\vspace{5pt}
 
-• \textbf{AgriMind – AI Crop \& Yield Prediction Platform} \hfill
-\href{https://github.com/cnniranjan72/AgriMind}{\faGithub} \\[2pt]
-\textit{Full-stack AI-driven assistant providing crop and yield recommendations.}\\
-Uses soil, weather, and market data for predictive analytics with PostgreSQL and Flask backend.\\[2pt]
-\textbf{Tech Stack:} React, Flask, scikit-learn, PostgreSQL, Vercel, Render
-\vspace{5pt}
+\textbf{CIVITAS — AI Smart City Digital Twin} \hfill
+\href{https://github.com/cnniranjan72/civitas}{\faGithub}
+\begin{itemize}
+\item Designed an \textbf{AI-driven smart-city digital twin} with adaptive reinforcement learning, PPO model and agent-based citizen behavioral modeling for policy optimization.
+\item Engineered multi-objective reward functions balancing infrastructure stability, public sentiment, and economic efficiency with measurable policy convergence.
+\item Integrated LLM-assisted reasoning and developed a real-time \textbf{FastAPI dashboard} visualizing policy → metric → sentiment causality and simulation dynamics.
+\end{itemize}
 
-• \textbf{VisioNarrate – AI-Powered Storytelling Platform} \hfill
-\href{https://github.com/cnniranjan72/VisioNarrate}{\faGithub} \\[2pt]
-\textit{Accessible storytelling app for visually impaired users.}\\
-GPT-based story generation and narration using FastAPI backend and React frontend.\\[2pt]
-\textbf{Tech Stack:} React, FastAPI, MongoDB, OpenAI GPT, Docker
+
+\textbf{IntelliMine — Autonomous Landmine Detection System} \hfill
+\href{https://github.com/cnniranjan72/Autonomous-Landmine-detector}{\faGithub}
+\begin{itemize}
+\item Engineered AI-based landmine detection and classification using \textbf{Random Forest, PCA, and severity scoring} and achieved \textbf{98.2\% detection rate} and \textbf{93.8\% cross-validation accuracy}.
+\item Developed mine-type prediction, \textbf{A* safe path planning}, and deployed full-stack system with \textbf{React.js, Flask, MongoDB, and JWT-secured APIs}.
+\end{itemize}
+
+\textbf{AgriMind — AI Crop \& Yield Prediction Platform} \hfill
+\href{https://github.com/cnniranjan72/AgriMind}{\faGithub}
+\begin{itemize}
+\item Built ML-driven crop recommendation and yield prediction across \textbf{30+ crops} with \textbf{96.8\% model accuracy}.
+\item Implemented \textbf{Flask + PostgreSQL backend}, end-to-end ML pipelines, and responsive React UI with secure authentication and real-time insights.
+\end{itemize}
 
 \sectionline
 
-%--------------------
-% Additional Info
-%--------------------
-\section*{\faInfoCircle\ Additional Information}
-\justifying
-\textbf{Certifications:}
-The Complete Full-Stack Web Development Bootcamp, The Complete Dart and Flutter Developer Course, The Complete Guide, Data Structures and Algorithms (C, C++)
+% ---------- SKILLS ----------
+\section*{\faCode\ Skills}
+\textbf{Languages:} C, C++, Java, Python, JavaScript, Dart, HTML, CSS \\
+\textbf{Frameworks \& Libraries:} React.js, Flutter, FastAPI, Flask, Node.js, Scikit-learn, RAG Pipelines \\
+\textbf{Databases:} PostgreSQL, MongoDB, MySQL, Firestore, SQLite \\
+\textbf{Tools:} Git, Docker, Linux, Postman, Swagger, Playwright, Vercel, Render, Railway, Firecrawl
 
-\textbf{Interests:} Reading tech blogs, micro-projects, open-source, cricket \\[3pt]
+
+\sectionline
+
+% ---------- ADDITIONAL ----------
+\section*{\faInfoCircle\ Additional Information}
+\textbf{Certifications:} Full-Stack Web Development Bootcamp, Tata — GenAI Powered Data Analytics Job Simulation \\
+\textbf{Interests:} Tech blogs, micro-projects, open source, cricket \\
 \textbf{Languages:} English (Proficient), Kannada (Native), Hindi (Intermediate), Telugu (Intermediate)
 
 \end{document}
