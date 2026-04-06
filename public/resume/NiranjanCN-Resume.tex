@@ -10,19 +10,17 @@
 
 \pagestyle{empty}
 
-% ---------- Balanced readable spacing ----------
 \setstretch{0.93}
 \setlength{\parindent}{0pt}
 \setlist[itemize]{leftmargin=10pt, itemsep=0.5pt, topsep=0.4pt}
 
-% ---------- Section style ----------
 \titleformat{\section}{\large\bfseries}{}{0em}{}
 \titlespacing{\section}{0pt}{4pt}{1.5pt}
 \newcommand{\sectionline}{\vspace{-6pt}\noindent\rule{\linewidth}{0.5pt}\vspace{1.5pt}}
 
 \begin{document}
 
-% ---------- HEADER ----------
+% HEADER
 \begin{center}
 {\LARGE \textbf{Niranjan C N}}\\[3pt]
 \faPhone\ \href{tel:+919108269436}{+91 9108269436} \quad
@@ -32,82 +30,77 @@
 \end{center}
 \sectionline
 
-% ---------- SUMMARY ----------
+% SUMMARY
 \section*{\faBullseye\ Summary}
-Computer Science undergraduate and Software Engineer delivering production-grade full-stack and AI-driven systems across aviation and enterprise platforms. Built reinforcement-learning simulations and ML pipelines achieving 98\%+ detection accuracy, with strong foundation in data structures, algorithms, and scalable system design.
+Computer Science undergraduate and Software Engineer building production-grade full-stack and AI systems across aviation and enterprise platforms. Experienced in RAG pipelines, vector databases, and reinforcement learning systems with strong foundations in scalable system design.
 
 \sectionline
 
-% ---------- EDUCATION ----------
+% EDUCATION
 \section*{\faGraduationCap\ Education}
 \textbf{AMC Engineering College — B.E. Computer Science (CGPA: 8.5)} \hfill \textit{2023 – 2027}
 
 \sectionline
-% ---------- EXPERIENCE ----------
+
+% EXPERIENCE
 \section*{\faBriefcase\ Experience}
 
-\textbf{Software Development Engineer (Contract), AeroAspire — Remote} \hfill \textit{Oct 2025 – Present}
+\textbf{Software Development Engineer, AeroAspire — Hybrid} \hfill \textit{Sep 2025 – Present}
 \begin{itemize}
-\item Own development of \textbf{AeroBriefs}, a production aviation weather briefing platform centralizing operational data for pilot and ATC workflows.
-\item Architected and deployed a real-time end-to-end system using \textbf{Flutter, Firebase, and Firestore}, ensuring reliable synchronization, scalability, and aviation-grade robustness.
+\item Built \textbf{AeroBriefs}, a production aviation weather briefing platform centralizing real-time operational data for pilots and ATC workflows.
+\item Developed end-to-end system using \textbf{Flutter, Firebase, Firestore} enabling real-time synchronization and scalable data handling.
+\item Delivered features under evolving requirements while ensuring \textbf{aviation-grade reliability} and domain-specific constraints.
 \end{itemize}
 
-\textbf{Software Development Engineer Intern, AeroAspire — Remote} \hfill \textit{Sep 2025 – Oct 2025}
+\textbf{AI Developer, Tribeca Softech — Remote} \hfill \textit{Jan 2026 – Present}
 \begin{itemize}
-\item Built and integrated full-stack modules using \textbf{React, Flask, Docker, and SQLite}, contributing to testing pipelines and production feature releases.
+\item Built an \textbf{enterprise-grade RAG query engine} supporting attachment-based queries, streaming responses, and conversational context management. Designed multi-mode interaction system including \textbf{focus mode, global mode, and temporary sessions} with dynamic context handling.
+\item Developed a \textbf{modular vectorization engine} for multi-source ingestion (S3, databases) with components like input manager, embedding pipeline, optimizer, observer, and profiling layers.
+\item Implemented \textbf{retrieval optimization, reranking, and LLM-based reasoning layers} to improve response relevance and handling of conflicting information.
+\item Built scalable backend using \textbf{FastAPI, PostgreSQL (Neon), async workflows} enabling real-time processing and extensible AI system design.
+\item Developed \textbf{AI research agents} for LinkedIn profile enrichment using Playwright, Firecrawl, and LLM-driven structured data extraction pipelines.
 \end{itemize}
-
-\textbf{Software Development Engineer (Consultant), Tribeca Softech — Remote} \hfill \textit{Jan 2026 – Present}
-\begin{itemize}
-\item Developed enterprise \textbf{IT risk governance platform components} using \textbf{React, RAG pipelines, FastAPI, and DataGol}, enabling structured knowledge retrieval and analytics insights.
-\item Engineered a \textbf{LinkedIn trusted-network intelligence browser extension} with \textbf{JavaScript DOM extraction}, \textbf{FastAPI}, \textbf{PostgreSQL (Neon)}, and \textbf{JWT} for automated profile analysis and outreach generation.
-\end{itemize}
-
 \sectionline
 
-
-% ---------- PROJECTS ----------
+% PROJECTS
 \section*{\faFolderOpen\ Projects}
 
 \textbf{CIVITAS — AI Smart City Digital Twin} \hfill
 \href{https://github.com/cnniranjan72/civitas}{\faGithub}
 \begin{itemize}
-\item Designed an \textbf{AI-driven smart-city digital twin} with adaptive reinforcement learning, PPO model and agent-based citizen behavioral modeling for policy optimization.
-\item Engineered multi-objective reward functions balancing infrastructure stability, public sentiment, and economic efficiency with measurable policy convergence.
-\item Integrated LLM-assisted reasoning and developed a real-time \textbf{FastAPI dashboard} visualizing policy → metric → sentiment causality and simulation dynamics.
+\item Built multi-domain reinforcement learning system using \textbf{PPO} with real-time simulation dashboard.
+\item Integrated \textbf{LLM-based explainability} for policy reasoning and system behavior insights.
 \end{itemize}
 
-
-\textbf{IntelliMine — Autonomous Landmine Detection System} \hfill
+\textbf{IntelliMine — Autonomous Landmine Detection} \hfill
 \href{https://github.com/cnniranjan72/Autonomous-Landmine-detector}{\faGithub}
 \begin{itemize}
-\item Engineered AI-based landmine detection and classification using \textbf{Random Forest, PCA, and severity scoring} and achieved \textbf{98.2\% detection rate} and \textbf{93.8\% cross-validation accuracy}.
-\item Developed mine-type prediction, \textbf{A* safe path planning}, and deployed full-stack system with \textbf{React.js, Flask, MongoDB, and JWT-secured APIs}.
+\item Developed ML-based detection system achieving \textbf{98.2\% accuracy} using Random Forest and PCA.
+\item Built full-stack solution with \textbf{React, Flask, MongoDB} including safe path planning.
 \end{itemize}
 
-\textbf{AgriMind — AI Crop \& Yield Prediction Platform} \hfill
-\href{https://github.com/cnniranjan72/AgriMind}{\faGithub}
+\textbf{Cortex — RAG-Based AI Assistant} \hfill
+\href{https://github.com/cnniranjan72/Cortex-RAG}{\faGithub}
 \begin{itemize}
-\item Built ML-driven crop recommendation and yield prediction across \textbf{30+ crops} with \textbf{96.8\% model accuracy}.
-\item Implemented \textbf{Flask + PostgreSQL backend}, end-to-end ML pipelines, and responsive React UI with secure authentication and real-time insights.
+\item Built RAG-based AI assistant supporting \textbf{attachment-based queries} with real-time streaming responses.
+\item Implemented document pipeline using \textbf{chunking, embeddings, and Pinecone} for semantic retrieval.
+\item Developed ChatGPT-like system using \textbf{React, FastAPI, OpenAI APIs} with function calling and structured outputs.
 \end{itemize}
-
 \sectionline
 
-% ---------- SKILLS ----------
+% SKILLS
 \section*{\faCode\ Skills}
-\textbf{Languages:} C, C++, Java, Python, JavaScript, Dart, HTML, CSS \\
-\textbf{Frameworks \& Libraries:} React.js, Flutter, FastAPI, Flask, Node.js, Scikit-learn, RAG Pipelines \\
-\textbf{Databases:} PostgreSQL, MongoDB, MySQL, Firestore, SQLite \\
-\textbf{Tools:} Git, Docker, Linux, Postman, Swagger, Playwright, Vercel, Render, Railway, Firecrawl
-
+\textbf{Languages:} C, C++, Java, Python, JavaScript, Typescript, Dart, HTML, CSS \\
+\textbf{Frameworks:} React.js, Flutter, FastAPI, Flask, Node.js, Express.js, RAG Pipelines \\
+\textbf{Databases:} PostgreSQL, MongoDB, MySQL, Firestore, SQLite, Pinecone \\
+\textbf{Tools:} Git, Docker, Linux, Postman, Swagger, Playwright
 
 \sectionline
 
-% ---------- ADDITIONAL ----------
+% ADDITIONAL
 \section*{\faInfoCircle\ Additional Information}
-\textbf{Certifications:} Full-Stack Web Development Bootcamp, Tata — GenAI Powered Data Analytics Job Simulation \\
-\textbf{Interests:} Tech blogs, micro-projects, open source, cricket \\
-\textbf{Languages:} English (Proficient), Kannada (Native), Hindi (Intermediate), Telugu (Intermediate)
+\textbf{Certifications:} Full-Stack Web Development Bootcamp, Tata GenAI Data Analytics Simulation, Anthropic - Claude Code in Action, Anthropic - AI Fluency: Framework and Foundations, MongoDB for Students\\
+\textbf{Interests:} Tech blogs, open source, micro-projects, cricket \\
+\textbf{Languages:} English, Kannada, Hindi, Telugu
 
 \end{document}

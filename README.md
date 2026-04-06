@@ -1,43 +1,61 @@
-#  Niranjan C N Portfolio
+# Niranjan C N Portfolio
 
 Welcome to my personal portfolio! This site showcases my skills, projects, and ways to connect with me.
 
 ## 🚀 About Me
-I am a 3rd-year CSE student passionate about **web development**, **app development**, and **AI/ML**. I focus on building modern web applications targetting Real-world problems.
+I am a Computer Science undergraduate and Software Engineer passionate about building **production-grade full-stack and AI systems** across aviation and enterprise platforms. Experienced in RAG pipelines, vector databases, and reinforcement learning systems with strong foundations in scalable system design.
 
 ## 💻 Tech Stack
-- **Frontend:** React, TypeScript, Tailwind CSS
+- **Frontend:** React, TypeScript, Tailwind CSS, Framer Motion
+- **Backend:** Node.js, FastAPI, Flask, Express
+- **Database:** PostgreSQL, MongoDB, Firestore, Pinecone
+- **AI/ML:** OpenAI APIs, Reinforcement Learning, RAG Systems
 - **Libraries & Tools:** React Router, TanStack Query, Lucide Icons, Sonner, Toaster
-- **Other:** Vite, Git, GitHub
+- **DevOps:** Docker, Git, GitHub Actions
 
 ## 🌟 Features
-- Fully **responsive** and mobile-friendly design
-- Interactive **Cyan Kite-Tail Cursor** animation
-- **Custom clickable scroll bar** for smooth navigation
-- Floating toolbar for easy access to navigation
-- Clean, modern, and minimalistic UI
-- Contact section with email, phone, and social links
-- Resume download button
-- Smooth scrolling animations
+- **Cyberpunk Neon Theme** - Modern neon aesthetic with cyan/pink color scheme
+- **Animated Neon Grid Background** - Consistent across all sections
+- **Zero-Lag Neon Cursor** - Smooth, responsive cursor glow effect
+- **Interactive Tech Icons** - Floating tech stack icons with hover effects
+- **Enhanced Social Links** - Glass-morphism grow animations
+- **Project Cards** - Unique icons per project, demo buttons for live apps
+- **Capability Chips** - Professional skill highlights
+- **Smooth Scrolling** - Custom neon scroll bar
+- **Fully Responsive** - Mobile-friendly design
 
 ## 📂 Sections
-- **Home Page Section** – Introduction and quick links
-- **About Section** – Personal info and skills
-- **Projects Section** – My projects with descriptions and links
-- **Skills Section** – Tech skills with experience level
-- **Contact Section** – Email, phone, LinkedIn, GitHub, and Resume
+- **Hero Section** - Introduction with animated tech icons and call-to-action
+- **About Section** - Professional profile and capability highlights
+- **Experience Section** - Work history and achievements
+- **Education Section** - Academic background and coursework
+- **Projects Section** - Portfolio showcase with live demos
+- **Contact Section** - Professional contact information
+
+## 🎯 Featured Projects
+- **IntelliMine** - AI-powered landmine detection with 98.2% accuracy
+- **AgriMind** - ML-driven crop recommendation platform
+- **Civitas** - AI-driven smart-city twin simulation
+- **Cortex** - RAG-based AI assistant with streaming responses
 
 ## 🔗 Live Demo
 Check out the live version [here](https://niranjan-portfolio-phi.vercel.app/)
 
 ## 📁 Repository
-You can find the source code on [GitHub]([YOUR_REPO_LINK](https://github.com/cnniranjan72/niranjan_portfolio/))
+You can find the source code on [GitHub](https://github.com/cnniranjan72/niranjan_portfolio/)
 
 ## 📫 Contact Me
 - Email: [cnniranjan72@gmail.com](mailto:cnniranjan72@gmail.com)
 - LinkedIn: [Niranjan C N](https://www.linkedin.com/in/niranjan-c-n/)
 - GitHub: [cnniranjan72](https://github.com/cnniranjan72)
 
+## 🛠️ Development
+- **Framework:** React 18 with TypeScript
+- **Styling:** Tailwind CSS with custom neon theme
+- **Animations:** Framer Motion for smooth interactions
+- **Build Tool:** Vite for fast development
+- **Deployment:** Vercel for optimal performance
+
 ---
 
-*Thank you for visiting my portfolio! Feel free to reach out for collaboration or project opportunities.*
+*© 2026 Niranjan C N. Built with passion for full-stack development and AI systems.*
