@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import VerySimpleNeonScene from "@/components/3d/VerySimpleNeonScene";
+import Chatbot from "@/components/Chatbot";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -130,6 +131,9 @@ const App: React.FC = () => {
             scrollbar-width: none;
           }
         `}</style>
+        
+        {/* Chatbot Component */}
+        <Chatbot />
       </TooltipProvider>
     </QueryClientProvider>
   );

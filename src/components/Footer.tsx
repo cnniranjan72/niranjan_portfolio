@@ -7,7 +7,7 @@ const Footer = () => {
     { icon: <Mail size={24} />, href: "mailto:cnniranjan72@gmail.com", label: "Email", color: "neon-text-pink" },
     { icon: <Linkedin size={24} />, href: "https://www.linkedin.com/in/niranjan-c-n", label: "LinkedIn", color: "neon-text-blue" },
     { icon: <Github size={24} />, href: "https://github.com/cnniranjan72", label: "GitHub", color: "neon-text-cyan" },
-    { icon: <FileText size={24} />, href: "/public/resume/NiranjanCN-Resume.pdf", label: "Resume", color: "neon-text-green" },
+    { icon: <FileText size={24} />, href: "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/cnniranjan72/niranjan_portfolio/main/public/resume/NiranjanCN-Resume.pdf&embedded=true", label: "Resume", color: "neon-text-green" },
   ];
 
   return (

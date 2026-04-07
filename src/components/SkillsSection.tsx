@@ -183,40 +183,6 @@ const SkillsSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          {[
-            { name: "React", color: "#61DAFB", delay: 0 },
-            { name: "Node.js", color: "#339933", delay: 0.1 },
-            { name: "Python", color: "#3776AB", delay: 0.2 },
-            { name: "TypeScript", color: "#3178C6", delay: 0.3 },
-            { name: "FastAPI", color: "#009688", delay: 0.4 },
-            { name: "Docker", color: "#2496ED", delay: 0.5 },
-          ].map((tech, i) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                delay: tech.delay,
-                duration: 0.5
-              }}
-              whileHover={{ 
-                scale: 1.1,
-                y: -3
-              }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <span
-                className="px-3 py-1 rounded-full text-xs font-medium text-white"
-                style={{
-                  backgroundColor: tech.color,
-                  boxShadow: `0 0 10px ${tech.color}66`,
-                  border: `1px solid ${tech.color}99`,
-                }}
-              >
-                {tech.name}
-              </span>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

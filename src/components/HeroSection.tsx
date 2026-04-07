@@ -515,13 +515,10 @@ const HeroSection = () => {
             >
 
               <Button
-
                 size="lg"
-
-                className="neon-button text-lg px-6 sm:px-8 py-6 w-full sm:w-auto"
-
+                variant="outline"
+                className="neon-border-cyan text-lg px-6 sm:px-8 py-6 neon-text-cyan hover:neon-glow-cyan w-full sm:w-auto border border-cyan-500/30 hover:bg-cyan-500/10 transition-all duration-300"
                 onClick={() => scrollToSection("portfolio")}
-
               >
 
                 <Rocket className="mr-2" size={20} />
@@ -588,7 +585,7 @@ const HeroSection = () => {
 
               >
 
-                <a href="/public/resume/NiranjanCN-Resume.pdf" target="_blank">
+                <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/cnniranjan72/niranjan_portfolio/main/public/resume/NiranjanCN-Resume.pdf&embedded=true" target="_blank">
 
                   <FileDown className="mr-2" size={20} />
 

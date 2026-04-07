@@ -226,18 +226,29 @@ const PortfolioSection = () => {
             <motion.div
               key={category}
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.3 }}
+              animate={{ 
+                opacity: 1, 
+                scale: activeFilter === category ? [1, 1.08, 1] : 1,
+                boxShadow: activeFilter === category 
+                  ? ["0 0 20px rgba(236, 72, 153, 0.4)", "0 0 35px rgba(236, 72, 153, 0.8)", "0 0 20px rgba(236, 72, 153, 0.4)"]
+                  : "0 0 0px transparent"
+              }}
+              transition={{ 
+                delay: index * 0.1, 
+                duration: 0.3,
+                scale: { duration: 1.2, repeat: Infinity, ease: "easeInOut" },
+                boxShadow: { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+              }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <Button
-                variant={activeFilter === category ? "default" : "outline"}
+                variant="outline"
                 onClick={() => setActiveFilter(category)}
                 className={`transition-all duration-300 ${
                   activeFilter === category 
-                    ? "neon-button" 
-                    : "neon-border-cyan neon-text-cyan hover:neon-glow-cyan"
+                    ? "neon-border-pink neon-text-pink hover:neon-glow-pink border border-pink-500/50 bg-pink-500/10" 
+                    : "neon-border-cyan neon-text-cyan hover:neon-glow-cyan border border-cyan-500/30 hover:bg-cyan-500/10"
                 }`}
               >
                 {category}
