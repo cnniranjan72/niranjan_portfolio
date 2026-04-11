@@ -39,7 +39,7 @@ I am a Computer Science undergraduate and Software Engineer passionate about bui
 - **Cortex** - RAG-based AI assistant with streaming responses
 
 ## 🔗 Live Demo
-Check out the live version [here](https://niranjan-portfolio-phi.vercel.app/)
+Check out the live version [here](https://niranjancn.vercel.app/)
 
 ## 📁 Repository
 You can find the source code on [GitHub](https://github.com/cnniranjan72/niranjan_portfolio/)
