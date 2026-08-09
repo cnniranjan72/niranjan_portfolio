@@ -15,6 +15,11 @@ const SkillsSection = () => {
       title: "Frameworks & Libraries",
       skills: [
         "React.js",
+        "Vite",
+        "Three.js",
+        "React Three Fiber",
+        "Axios",
+        "Recharts",
         "Flutter",
         "FastAPI",
         "Flask",
@@ -28,7 +33,7 @@ const SkillsSection = () => {
     {
       icon: <Database className="w-10 h-10 text-primary" />,
       title: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "MySQL", "Firestore", "SQLite", "Pinecone","Redis","PGVector","Supabase","Firebase"],
+      skills: ["PostgreSQL", "MongoDB", "MySQL", "Firestore", "SQLite", "Pinecone","Redis","PGVector","Supabase","Firebase","Neon"],
     },
     {
       icon: <Wrench className="w-10 h-10 text-primary" />,
@@ -44,6 +49,8 @@ const SkillsSection = () => {
         "Render",
         "Railway",
         "Firecrawl",
+        "Chrome Extension MV3",
+        "pytest",
         "VS Code",
         "GitHub",
       ],
@@ -56,7 +63,7 @@ const SkillsSection = () => {
     {
       icon: <Cpu className="w-10 h-10 text-primary" />,
       title: "AI/ML Tools",
-      skills: ["TensorFlow", "PyTorch", "OpenAI", "Hugging Face", "Weights & Biases"],
+      skills: ["TensorFlow", "PyTorch", "OpenAI", "Anthropic Claude", "Ollama", "Hugging Face", "Sentence Transformers", "ScrapeGraphAI", "Reinforcement Learning", "Weights & Biases"],
     },
     {
       icon: <Globe className="w-10 h-10 text-primary" />,

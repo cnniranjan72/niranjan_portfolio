@@ -21,32 +21,43 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
+      title: "AIMirror — Behavioral Digital Twin Engine",
+      description:
+        "Production-grade cognitive digital twin engine that constructs, evolves, and explains a complete behavioral identity model from Instagram Reels and YouTube activity.",
+      category: ["Featured", "AI/ML"],
+      tags: ["FastAPI", "React", "PostgreSQL", "pgvector", "Chrome Extension", "RAG", "Reinforcement Learning", "LLM"],
+      demoLink: "https://aimirror-dashboard.onrender.com",
+      codeLink: "https://github.com/cnniranjan72/AI-Mirror",
+      icon: <Database className="w-6 h-6" />,
+    },
+    {
+      id: 2,
       title: "CIVITAS — AI Smart City Digital Twin",
       description:
         "AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling that optimizes policy trade-offs.",
       category: ["Featured", "AI/ML"],
       tags: ["Reinforcement Learning", "FastAPI", "Simulation", "LLM","PPO Multi-Agent","Agent-Based Modeling","Policy Optimization"],
-      demoLink: "#",
+      demoLink: "https://civitas-frontend-jee0.onrender.com",
       codeLink: "https://github.com/cnniranjan72/civitas",
       icon: <Building className="w-6 h-6" />,
     },
     {
-      id: 2,
+      id: 3,
       title: "IntelliMine — Autonomous Landmine Detection",
       description:
         "Random Forest + PCA pipelines with severity scoring, 98.2% detection rate, and A* safe path planning.",
-      category: ["Featured", "AI/ML"],
+      category: ["AI/ML"],
       tags: ["Random Forest", "React.js", "Flask", "MongoDB", "JWT","FastAPI","PCA","Firestore"],
       demoLink: "https://intellimine.vercel.app",
       codeLink: "https://github.com/cnniranjan72/Autonomous-Landmine-detector",
       icon: <Shield className="w-6 h-6" />,
     },
     {
-      id: 3,
+      id: 4,
       title: "Cortex — RAG-Based AI Assistant",
       description:
         "Built RAG-based AI assistant supporting attachment-based queries with real-time streaming responses.",
-      category: ["Featured", "AI/ML"],
+      category: ["AI/ML"],
       tags: [
         "React.js",
         "FastAPI",
@@ -63,11 +74,11 @@ const PortfolioSection = () => {
       icon: <Brain className="w-6 h-6" />,
     },
     {
-      id: 4,
+      id: 5,
       title: "AgriMind — AI Crop & Yield Platform",
       description:
         "ML-driven crop recommendation + yield prediction across 30+ crops with 96.8% model accuracy.",
-      category: ["Featured", "Web Development", "AI/ML"],
+      category: ["Web Development", "AI/ML"],
       tags: [
         "React.js",
         "Flask",
@@ -80,7 +91,7 @@ const PortfolioSection = () => {
       icon: <Camera className="w-6 h-6" />,
     },
     {
-      id: 5,
+      id: 6,
       title: "VisioNarrate – Image to Story Generator",
       description:
         "Generates human-like stories from images using machine learning and NLP-based storytelling models.",
@@ -91,7 +102,7 @@ const PortfolioSection = () => {
       icon: <FileText className="w-6 h-6" />,
     },
     {
-      id: 6,
+      id: 7,
       title: "KisaanMitra – Farmer Support Platform",
       description:
         "A platform providing farmers with financial guidance, crop insights, and community support features.",
@@ -102,7 +113,7 @@ const PortfolioSection = () => {
       icon: <Users className="w-6 h-6" />,
     },
     {
-      id: 7,
+      id: 8,
       title: "KrishiLakshya – Financial Tracker for Farmers",
       description:
         "A Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.",
@@ -113,7 +124,7 @@ const PortfolioSection = () => {
       icon: <DollarSign className="w-6 h-6" />,
     },
     {
-      id: 8,
+      id: 9,
       title: "CampusConnect – College Information Portal",
       description:
         "Portal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.",
@@ -124,7 +135,7 @@ const PortfolioSection = () => {
       icon: <Calendar className="w-6 h-6" />,
     },
     {
-      id: 9,
+      id: 10,
       title: "MyExpenseMate – Personal Expense Tracker",
       description:
         "Cross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.",
@@ -135,7 +146,7 @@ const PortfolioSection = () => {
       icon: <Smartphone className="w-6 h-6" />,
     },
     {
-      id: 10,
+      id: 11,
       title: "QuickNotes – Minimalist Notes PWA",
       description:
         "Offline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.",
@@ -146,7 +157,7 @@ const PortfolioSection = () => {
       icon: <FileText className="w-6 h-6" />,
     },
     {
-      id: 11,
+      id: 12,
       title: "GameHive – Gaming Community Platform",
       description:
         "Frontend project for a gaming hub where players can share updates, join discussions, and explore trending games.",
@@ -322,8 +333,8 @@ const PortfolioSection = () => {
 
                 {/* Enhanced Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  {/* Only show Demo button for IntelliMine and AgriMind */}
-                  {(project.title.includes("IntelliMine") || project.title.includes("AgriMind")) && (
+                  {/* Only show Demo button for AIMirror, Civitas, IntelliMine and AgriMind */}
+                  {(project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind")) && (
                     <motion.div
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
@@ -349,7 +360,7 @@ const PortfolioSection = () => {
                   <motion.div
                     whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    className={project.title.includes("IntelliMine") || project.title.includes("AgriMind") ? "flex-1" : "w-full"}
+                    className={project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind") ? "flex-1" : "w-full"}
                   >
                     <Button 
                       asChild 

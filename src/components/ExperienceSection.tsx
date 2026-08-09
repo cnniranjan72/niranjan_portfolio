@@ -37,14 +37,14 @@ const experiences = [
   {
     role: "AI Developer",
     company: "Tribeca Softech",
-    period: "Feb 2026 – Present",
+    period: "Jan 2026 – Present",
     location: "Remote",
     highlights: [
-      "Built an enterprise-grade RAG query engine supporting attachment-based queries, streaming responses, and conversational context management. Designed multi-mode interaction system including focus mode, global mode, and temporary sessions with dynamic context handling.",
-      "Developed a modular vectorization engine for multi-source ingestion (S3, databases) with components like input manager, embedding pipeline, optimizer, observer, and profiling layers.",
-      "Implemented retrieval optimization, reranking, and LLM-based reasoning layers to improve response relevance and handling of conflicting information.",
-      "Built scalable backend using FastAPI, PostgreSQL (Neon), async workflows enabling real-time processing and extensible AI system design.",
-      "Developed AI research agents for LinkedIn profile enrichment using Playwright, Firecrawl, and LLM-driven structured data extraction pipelines.",
+      "Architected production-grade AI backend services using FastAPI, PostgreSQL (Neon), and asynchronous processing for scalable enterprise knowledge systems.",
+      "Designed distributed ingestion and vectorization pipelines using AWS S3, Redis, BullMQ, and pgvector for scalable semantic retrieval.",
+      "Built retrieval, evaluation, telemetry, and observability pipelines for enterprise RAG systems.",
+      "Implemented GraphQL APIs, JWT authentication, RBAC, structured logging, Docker deployment, health monitoring, and workflow orchestration.",
+      "Led architecture and implementation of multiple AI platform components emphasizing scalability, reliability, maintainability, and production readiness.",
     ],
   },
 ];

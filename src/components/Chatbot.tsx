@@ -9,6 +9,125 @@ interface Message {
   timestamp: Date;
 }
 
+const RESPONSES: Record<string, string> = {
+  greeting:
+    "Hello! 👋 I'm the Portfolio Assistant for Niranjan. I can tell you about his projects, experience, skills, education, and contact info. Try one of the preset options below or type a question!",
+  about:
+    'Niranjan is a Computer Science undergraduate and Software Engineer passionate about building production-grade full-stack and AI systems across aviation and enterprise platforms. He has experience in RAG pipelines, vector databases, and reinforcement learning systems with strong foundations in scalable system design. Currently pursuing B.E. in Computer Science and Engineering from AMC Engineering College, Bangalore with a CGPA of 8.5.',
+  projects:
+    'Featured Projects:\n\n🪞 AIMirror - Behavioral digital twin engine that constructs, evolves, and explains a complete cognitive identity model from Instagram Reels and YouTube activity\n   🔗 Demo: https://aimirror-dashboard.onrender.com\n\n🏙️ Civitas - AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling\n   🔗 Demo: https://civitas-frontend-jee0.onrender.com\n\n🚀 IntelliMine - AI-powered landmine detection with 98.2% accuracy using Random Forest + PCA pipelines with A* safe path planning\n\n🌾 AgriMind - ML-driven crop recommendation platform across 30+ crops with 96.8% model accuracy\n\n🤖 Cortex - RAG-based AI assistant supporting attachment-based queries with real-time streaming responses\n\n📸 VisioNarrate - Image to story generator using ML and NLP\n\n👨‍🌾 KisaanMitra - Farmer support platform with financial guidance and crop insights\n\n💰 KrishiLakshya - PWA for farmers to track expenses, income, and profits with OCR bill scanning\n\n🎓 CampusConnect - College information portal with real-time updates\n\n📱 MyExpenseMate - Cross-platform mobile expense tracker app\n\n📝 QuickNotes - Offline-first notes PWA with IndexedDB storage\n\n🎮 GameHive - Gaming community platform frontend\n\nType a project name to see details and live demo links!',
+  aimirror:
+    '🪞 AIMirror — Behavioral Digital Twin Engine\n\nA production-grade cognitive digital twin engine that constructs, evolves, and explains a complete behavioral identity model from Instagram Reels and YouTube activity.\n\n• 9-sub-profile behavioral identity (behavior, interest graph, creator graph, learning style, attention, exploration, consistency, habit, motivation)\n• Full explainability — every inference traces back to its source evidence\n• Chrome Extension (MV3) ingestion + FastAPI + React + PostgreSQL (pgvector)\n• Multi-provider LLM (OpenAI, Anthropic, Ollama) verbalizes only — never reasons or decides\n• Online RL layer (contextual bandit) for personalized wellbeing interventions\n\n🔗 Demo: https://aimirror-dashboard.onrender.com\n🐙 Code: https://github.com/cnniranjan72/AI-Mirror',
+  civitas:
+    '🏙️ CIVITAS — AI Smart City Digital Twin\n\nAI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling that optimizes policy trade-offs.\n\n• PPO multi-agent reinforcement learning for policy optimization\n• Real-time urban simulations with agent-based citizen modeling\n• LLM-powered decision explainability\n\n🔗 Demo: https://civitas-frontend-jee0.onrender.com\n🐙 Code: https://github.com/cnniranjan72/civitas',
+  intellimine:
+    '🚀 IntelliMine — Autonomous Landmine Detection\n\nRandom Forest + PCA pipelines with severity scoring, 98.2% detection rate, and A* safe path planning.\n\n🔗 Demo: https://intellimine.vercel.app\n🐙 Code: https://github.com/cnniranjan72/Autonomous-Landmine-detector',
+  cortex:
+    '🤖 Cortex — RAG-Based AI Assistant\n\nRAG-based AI assistant supporting attachment-based queries with real-time streaming responses. Uses OpenAI APIs, function calling, structured outputs, and vector search (Pinecone).',
+  agrimind:
+    '🌾 AgriMind — AI Crop & Yield Platform\n\nML-driven crop recommendation + yield prediction across 30+ crops with 96.8% model accuracy.\n\n🔗 Demo: https://agrimind-frontend.vercel.app/\n🐙 Code: https://github.com/cnniranjan72/AgriMind',
+  visionarrate:
+    '📸 VisioNarrate — Image to Story Generator\n\nGenerates human-like stories from images using machine learning and NLP-based storytelling models.\n\n🐙 Code: https://github.com/cnniranjan72/VisioNarrate',
+  kisaanmitra:
+    '👨‍🌾 KisaanMitra — Farmer Support Platform\n\nA platform providing farmers with financial guidance, crop insights, and community support features.\n\n🐙 Code: https://github.com/cnniranjan72/Kisaanmitra-',
+  krishilakshya:
+    '💰 KrishiLakshya — Financial Tracker for Farmers\n\nA Progressive Web App helping farmers track agricultural expenses, income, and profits. Includes OCR bill scanning and interactive charts.\n\n🐙 Code: https://github.com/cnniranjan72/KrishiLakshya',
+  campusconnect:
+    '🎓 CampusConnect — College Information Portal\n\nPortal for students to view notices, timetables, and events. Faculty dashboard allows posting updates in real-time.\n\n🐙 Code: https://github.com/cnniranjan72/campus-connect',
+  expensemate:
+    '📱 MyExpenseMate — Personal Expense Tracker\n\nCross-platform mobile app to log expenses, categorize spending, and visualize trends with charts.\n\n🐙 Code: https://github.com/cnniranjan72/Expense-Tracker',
+  quicknotes:
+    '📝 QuickNotes — Minimalist Notes PWA\n\nOffline-first notes app with IndexedDB storage and dark mode, works seamlessly without internet.',
+  gamehive:
+    '🎮 GameHive — Gaming Community Platform\n\nFrontend project for a gaming hub where players can share updates, join discussions, and explore trending games.\n\n🐙 Code: https://github.com/cnniranjan72/GameHive-Frontend-Project',
+  experience:
+    'Work Experience:\n\n🤖 AI Developer at Tribeca Softech (Jan 2026 – Present)\n• Architected production-grade AI backend services using FastAPI, PostgreSQL (Neon), and async processing\n• Designed distributed ingestion/vectorization pipelines using AWS S3, Redis, BullMQ, and pgvector\n• Built retrieval, evaluation, telemetry, and observability pipelines for enterprise RAG systems\n• Implemented GraphQL APIs, JWT auth, RBAC, structured logging, Docker, and health monitoring\n• Led architecture of multiple AI platform components for production readiness\n\n🔧 Software Development Engineer (Contract) at AeroAspire (Oct 2025 – Present)\n• Own development of AeroBriefs, production aviation weather briefing platform\n• Architected real-time Flutter + Firebase + Firestore systems\n\n💻 Software Development Engineer Intern at AeroAspire (Sep 2025 – Oct 2025)\n• Built full-stack modules spanning React, Flask, Docker, and SQLite\n\n🚀 Software Development Engineer (Consultant) at Tribeca Softech (Jan 2026 – Feb 2026)\n• Developed enterprise IT risk governance components\n• Built LinkedIn trusted-network intelligence extension\n\nAsk about "tribeca" or "aeroaspire" for more details.',
+  tribeca:
+    '🤖 Tribeca Softech — AI Developer (Jan 2026 – Present)\n\n• Architected production-grade AI backend services using FastAPI, PostgreSQL (Neon), and asynchronous processing for scalable enterprise knowledge systems.\n• Designed distributed ingestion and vectorization pipelines using AWS S3, Redis, BullMQ, and pgvector for scalable semantic retrieval.\n• Built retrieval, evaluation, telemetry, and observability pipelines for enterprise RAG systems.\n• Implemented GraphQL APIs, JWT authentication, RBAC, structured logging, Docker deployment, health monitoring, and workflow orchestration.\n• Led architecture and implementation of multiple AI platform components emphasizing scalability, reliability, maintainability, and production readiness.',
+  aeroaspire:
+    '🔧 AeroAspire — Software Development Engineer (Sep 2025 – Present)\n\n• Developing AeroBriefs, a cross-platform aviation weather briefing application using Flutter, Firebase Authentication, Firestore, and REST APIs.\n• Built reliable synchronization pipelines for real-time aviation operations following industry best practices.',
+  skills:
+    'Technical Skills:\n\n💻 Frontend: React.js, TypeScript, Tailwind CSS, Framer Motion, Three.js, Vite\n\n🔧 Backend: FastAPI, Node.js, Flask, Express, GraphQL, REST APIs\n\n🗄️ Database: PostgreSQL, MongoDB, Redis, Firestore, Pinecone, MySQL, pgvector\n\n🤖 AI/ML: LLMs, RAG Systems, Agentic AI, Vector Databases, Embeddings, Semantic Search, Reinforcement Learning, OpenAI, Anthropic Claude, Ollama\n\n📱 Mobile: Flutter, React Native, PWA\n\n☁️ Cloud & DevOps: AWS, GCP, Docker, Linux, BullMQ, Neon\n\n🔧 Tools: Git, GitHub, Postman, Swagger, Playwright, Chrome Extension MV3',
+  education:
+    'Education:\n\n🎓 B.E. in Computer Science and Engineering\n🏛️ AMC Engineering College, Bangalore\n📅 2023 – 2027\n📊 CGPA: 8.5\n\n📚 Key Coursework:\n• Data Structures and Applications\n• Operating Systems\n• Database Management Systems\n• Theory of Computation\n• Analysis and Design of Algorithms\n• Computer Networks\n• Artificial Intelligence\n• Software Engineering & Project Management\n• Machine Learning\n• Cloud Computing\n• Compiler Design\n\n🎯 Academic Focus: Building strong foundations in computer science with practical applications in AI/ML and full-stack development.',
+  contact:
+    'Contact Information:\n\n📧 Email: cnniranjan72@gmail.com\n📱 Phone: +91 9108269436\n📍 Location: Bengaluru, India (available for remote work)\n💼 LinkedIn: https://www.linkedin.com/in/niranjan-c-n/\n🐙 GitHub: https://github.com/cnniranjan72\n📄 Resume: Downloadable from the portfolio\n\nFeel free to reach out for collaborations, project opportunities, or just a friendly hello!',
+  resume:
+    '📄 You can download Niranjan\'s resume here:\nhttps://niranjancn.vercel.app/resume/NiranjanCN-Resume.pdf\n\nIt\'s also available in the Resume section of this portfolio. Want his LinkedIn or GitHub instead?',
+  demos:
+    '🔗 Live Demos:\n\n🪞 AIMirror: https://aimirror-dashboard.onrender.com\n🏙️ Civitas: https://civitas-frontend-jee0.onrender.com\n🚀 IntelliMine: https://intellimine.vercel.app\n🌾 AgriMind: https://agrimind-frontend.vercel.app/\n\nPortfolio: https://niranjancn.vercel.app',
+  thanks:
+    "You're welcome! 😊 Happy to help. If you have any more questions about Niranjan's work, just ask.",
+  farewell:
+    "Goodbye! 👋 Thanks for visiting Niranjan's portfolio. Feel free to come back anytime — and don't forget to check out his latest projects!",
+  help:
+    "I can help you learn about Niranjan! Here's what I know about:\n\n• About — who he is and his background\n• Projects — AIMirror, Civitas, IntelliMine, and more\n• Experience — roles at Tribeca Softech and AeroAspire\n• Skills — tech stack and tools\n• Education — B.E. CSE at AMC Engineering College\n• Contact — email, phone, LinkedIn, GitHub\n• Resume — download a copy\n• Demos — live links to deployed projects\n\nTry asking things like \"tell me about AIMirror\" or \"what is his experience?\"",
+  empty:
+    "I didn't catch that. 🤔 Could you rephrase? Try asking about his projects, experience, skills, education, or contact info.",
+  fallback:
+    "Sorry, I didn't quite understand that. 🤔 I can tell you about Niranjan's projects, experience, skills, education, contact info, or resume.\n\nTry one of the preset options, or ask something like:\n• \"Tell me about AIMirror\"\n• \"What is his experience?\"\n• \"How can I contact him?\"\n• \"Show me live demos\"",
+};
+
+interface IntentPattern {
+  id: string;
+  keywords: string[];
+}
+
+const INTENT_PATTERNS: IntentPattern[] = [
+  { id: 'aimirror', keywords: ['aimirror', 'ai mirror', 'behavioral twin', 'digital twin', 'mirror'] },
+  { id: 'civitas', keywords: ['civitas', 'smart city', 'city twin', 'urban'] },
+  { id: 'intellimine', keywords: ['intellimine', 'landmine', 'mine detection'] },
+  { id: 'cortex', keywords: ['cortex', 'rag assistant'] },
+  { id: 'agrimind', keywords: ['agrimind', 'crop recommendation', 'yield'] },
+  { id: 'visionarrate', keywords: ['visionarrate', 'story generator', 'image to story'] },
+  { id: 'kisaanmitra', keywords: ['kisaanmitra', 'kisaan', 'farmer support'] },
+  { id: 'krishilakshya', keywords: ['krishilakshya', 'krishi', 'ocr bill'] },
+  { id: 'campusconnect', keywords: ['campusconnect', 'campus connect', 'college portal'] },
+  { id: 'expensemate', keywords: ['expensemate', 'expense tracker', 'expense'] },
+  { id: 'quicknotes', keywords: ['quicknotes', 'notes app', 'notes'] },
+  { id: 'gamehive', keywords: ['gamehive', 'gaming'] },
+  { id: 'tribeca', keywords: ['tribeca'] },
+  { id: 'aeroaspire', keywords: ['aeroaspire', 'aerobriefs', 'aviation'] },
+  { id: 'resume', keywords: ['resume', 'cv', 'download pdf'] },
+  { id: 'contact', keywords: ['contact', 'email', 'phone', 'phone number', 'call', 'reach', 'linkedin', 'github', 'address', 'message', 'location', 'located', 'based in'] },
+  { id: 'demos', keywords: ['demos', 'demo', 'live demo', 'deploy', 'hosted', 'website', 'launch'] },
+  { id: 'experience', keywords: ['experience', 'job', 'career', 'roles', 'internship', 'positions', 'where has he worked'] },
+  { id: 'projects', keywords: ['projects', 'project', 'portfolio', 'apps', 'showcase', 'builds', 'built', 'works', 'created'] },
+  { id: 'education', keywords: ['education', 'college', 'university', 'degree', 'cgpa', 'coursework', 'classes', 'amc', 'academics'] },
+  { id: 'skills', keywords: ['skill', 'technolog', 'tech stack', 'stack', 'frontend', 'backend', 'language', 'python', 'react', 'node', 'database', 'tools', 'framework', 'stacks'] },
+  { id: 'thanks', keywords: ['thank', 'thanks', 'appreciate', 'grateful'] },
+  { id: 'help', keywords: ['help', 'option', 'menu', 'what can you', 'how do i', 'start over', 'reset'] },
+  { id: 'farewell', keywords: ['bye', 'goodbye', 'see you', 'good night', 'goodnight', 'see ya', 'later'] },
+  { id: 'greeting', keywords: ['hello', 'hi', 'hey', 'yo', 'hola', 'namaste', 'good morning', 'good afternoon', 'good evening', 'whats up', 'howdy'] },
+  { id: 'about', keywords: ['about', 'who is', 'who are', 'niranjan', 'intro', 'introduction', 'yourself', 'bio', 'summary'] },
+];
+
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const matchesKeyword = (input: string, keyword: string) => {
+  if (keyword.includes(' ')) return input.includes(keyword);
+  if (keyword.length <= 4) {
+    return new RegExp(`\\b${escapeRegex(keyword)}\\b`).test(input);
+  }
+  return input.includes(keyword);
+};
+
+const getBotResponse = (rawInput: string): string => {
+  const input = (rawInput || '').toLowerCase().trim();
+
+  if (!input) return RESPONSES.empty;
+
+  const textOnly = input.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!textOnly) return RESPONSES.empty;
+
+  for (const pattern of INTENT_PATTERNS) {
+    if (pattern.keywords.some((kw) => matchesKeyword(textOnly, kw))) {
+      return RESPONSES[pattern.id];
+    }
+  }
+  return RESPONSES.fallback;
+};
+
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -40,12 +159,12 @@ const Chatbot = () => {
     { 
       id: 'projects', 
       text: 'What projects has he worked on?', 
-      response: 'Featured Projects:\n\n🚀 IntelliMine - AI-powered landmine detection with 98.2% accuracy using Random Forest + PCA pipelines with A* safe path planning\n\n🌾 AgriMind - ML-driven crop recommendation platform across 30+ crops with 96.8% model accuracy\n\n🏙️ Civitas - AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling\n\n🤖 Cortex - RAG-based AI assistant supporting attachment-based queries with real-time streaming responses\n\n📸 VisioNarrate - Image to story generator using ML and NLP\n\n👨‍🌾 KisaanMitra - Farmer support platform with financial guidance and crop insights\n\n💰 KrishiLakshya - PWA for farmers to track expenses, income, and profits with OCR bill scanning\n\n🎓 CampusConnect - College information portal with real-time updates\n\n📱 MyExpenseMate - Cross-platform mobile expense tracker app\n\n📝 QuickNotes - Offline-first notes PWA with IndexedDB storage\n\n🎮 GameHive - Gaming community platform frontend'
+      response: 'Featured Projects:\n\n🪞 AIMirror - Behavioral digital twin engine that constructs, evolves, and explains a complete cognitive identity model from Instagram Reels and YouTube activity\n   🔗 Demo: https://aimirror-dashboard.onrender.com\n\n🏙️ Civitas - AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling\n   🔗 Demo: https://civitas-frontend-jee0.onrender.com\n\n🚀 IntelliMine - AI-powered landmine detection with 98.2% accuracy using Random Forest + PCA pipelines with A* safe path planning\n\n🌾 AgriMind - ML-driven crop recommendation platform across 30+ crops with 96.8% model accuracy\n\n🤖 Cortex - RAG-based AI assistant supporting attachment-based queries with real-time streaming responses\n\n📸 VisioNarrate - Image to story generator using ML and NLP\n\n👨‍🌾 KisaanMitra - Farmer support platform with financial guidance and crop insights\n\n💰 KrishiLakshya - PWA for farmers to track expenses, income, and profits with OCR bill scanning\n\n🎓 CampusConnect - College information portal with real-time updates\n\n📱 MyExpenseMate - Cross-platform mobile expense tracker app\n\n📝 QuickNotes - Offline-first notes PWA with IndexedDB storage\n\n🎮 GameHive - Gaming community platform frontend\n\nType a project name to see details and live demo links!'
     },
     { 
       id: 'experience', 
       text: 'What is his experience?', 
-      response: 'Work Experience:\n\n🔧 Software Development Engineer (Contract) at AeroAspire (Oct 2025 – Present)\n• Own development of AeroBriefs, production aviation weather briefing platform\n• Architected real-time Flutter + Firebase + Firestore systems\n\n💻 Software Development Engineer Intern at AeroAspire (Sep 2025 – Oct 2025)\n• Developed AI-powered aviation weather briefing platform\n• Implemented real-time data processing and visualization\n\n🚀 Software Development Engineer (Consultant) at Tribeca Softech (Jan 2026 – Present)\n• Developed enterprise IT risk governance components\n• Built LinkedIn trusted-network intelligence extension\n• Implemented secure authentication system with OTP and MFA\n\n🤖 AI Developer at Tribeca Softech (Feb 2026 – Present)\n• Built enterprise-grade RAG query engine with streaming responses\n• Developed modular vectorization engine for multi-source ingestion\n• Implemented retrieval optimization and LLM-based reasoning layers\n• Built AI research agents for LinkedIn profile enrichment'
+      response: 'Work Experience:\n\n🤖 AI Developer at Tribeca Softech (Jan 2026 – Present)\n• Architected production-grade AI backend services using FastAPI, PostgreSQL (Neon), and async processing\n• Designed distributed ingestion/vectorization pipelines using AWS S3, Redis, BullMQ, and pgvector\n• Built retrieval, evaluation, telemetry, and observability pipelines for enterprise RAG systems\n• Implemented GraphQL APIs, JWT auth, RBAC, structured logging, Docker, and health monitoring\n• Led architecture of multiple AI platform components for production readiness\n\n🔧 Software Development Engineer (Contract) at AeroAspire (Oct 2025 – Present)\n• Own development of AeroBriefs, production aviation weather briefing platform\n• Architected real-time Flutter + Firebase + Firestore systems\n\n💻 Software Development Engineer Intern at AeroAspire (Sep 2025 – Oct 2025)\n• Built full-stack modules spanning React, Flask, Docker, and SQLite\n\n🚀 Software Development Engineer (Consultant) at Tribeca Softech (Jan 2026 – Feb 2026)\n• Developed enterprise IT risk governance components\n• Built LinkedIn trusted-network intelligence extension'
     },
     { 
       id: 'skills', 
@@ -88,55 +207,30 @@ const Chatbot = () => {
   };
 
   const handleSendMessage = () => {
-    if (inputValue.trim()) {
-      const userMessage: Message = {
-        id: Date.now().toString(),
-        text: inputValue,
-        sender: 'user',
+    const trimmed = inputValue.trim();
+    if (!trimmed || isTyping) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
+    setIsTyping(true);
+
+    setTimeout(() => {
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: getBotResponse(inputValue),
+        sender: 'bot',
         timestamp: new Date()
       };
-
-      setMessages(prev => [...prev, userMessage]);
-      const userInput = inputValue.toLowerCase();
-      setInputValue('');
-      setIsTyping(true);
-
-      setTimeout(() => {
-        let botResponse = "Thank you for your message! For specific inquiries, please use the preset options or contact Niranjan directly through the Contact section.";
-
-        // Keyword matching logic
-        if (userInput.includes('about') || userInput.includes('who') || userInput.includes('niranjan') || userInput.includes('intro')) {
-          botResponse = 'Niranjan is a Computer Science undergraduate and Software Engineer passionate about building production-grade full-stack and AI systems across aviation and enterprise platforms. He has experience in RAG pipelines, vector databases, and reinforcement learning systems with strong foundations in scalable system design. Currently pursuing B.E. in Computer Science and Engineering from AMC Engineering College, Bangalore with a CGPA of 8.5.';
-        }
-        else if (userInput.includes('project') || userInput.includes('work') || userInput.includes('portfolio') || userInput.includes('intellimine') || userInput.includes('agrimind') || userInput.includes('civitas') || userInput.includes('cortex')) {
-          botResponse = 'Featured Projects:\n\n🚀 IntelliMine - AI-powered landmine detection with 98.2% accuracy using Random Forest + PCA pipelines with A* safe path planning\n\n🌾 AgriMind - ML-driven crop recommendation platform across 30+ crops with 96.8% model accuracy\n\n🏙️ Civitas - AI-driven smart-city twin with adaptive RL, PPO, and agent-based citizen modeling\n\n🤖 Cortex - RAG-based AI assistant supporting attachment-based queries with real-time streaming responses\n\n📸 VisioNarrate - Image to story generator using ML and NLP\n\n👨‍🌾 KisaanMitra - Farmer support platform with financial guidance and crop insights\n\n💰 KrishiLakshya - PWA for farmers to track expenses, income, and profits with OCR bill scanning\n\n🎓 CampusConnect - College information portal with real-time updates\n\n📱 MyExpenseMate - Cross-platform mobile expense tracker app\n\n📝 QuickNotes - Offline-first notes PWA with IndexedDB storage\n\n🎮 GameHive - Gaming community platform frontend';
-        }
-        else if (userInput.includes('experience') || userInput.includes('job') || userInput.includes('work') || userInput.includes('career') || userInput.includes('aeroaspire') || userInput.includes('tribeca')) {
-          botResponse = 'Work Experience:\n\n🔧 Software Development Engineer (Contract) at AeroAspire (Oct 2025 – Present)\n• Own development of AeroBriefs, production aviation weather briefing platform\n• Architected real-time Flutter + Firebase + Firestore systems\n\n💻 Software Development Engineer Intern at AeroAspire (Sep 2025 – Oct 2025)\n• Developed AI-powered aviation weather briefing platform\n• Implemented real-time data processing and visualization\n\n🚀 Software Development Engineer (Consultant) at Tribeca Softech (Jan 2026 – Present)\n• Developed enterprise IT risk governance components\n• Built LinkedIn trusted-network intelligence extension\n• Implemented secure authentication system with OTP and MFA\n\n🤖 AI Developer at Tribeca Softech (Feb 2026 – Present)\n• Built enterprise-grade RAG query engine with streaming responses\n• Developed modular vectorization engine for multi-source ingestion\n• Implemented retrieval optimization and LLM-based reasoning layers\n• Built AI research agents for LinkedIn profile enrichment';
-        }
-        else if (userInput.includes('skill') || userInput.includes('tech') || userInput.includes('technology') || userInput.includes('react') || userInput.includes('node') || userInput.includes('python') || userInput.includes('database')) {
-          botResponse = 'Technical Skills:\n\n💻 Frontend: React.js, TypeScript, Tailwind CSS, Framer Motion, HTML5, CSS3, JavaScript\n\n🔧 Backend: Node.js, FastAPI, Flask, Express, REST APIs\n\n🗄️ Database: PostgreSQL, MongoDB, Firestore, Pinecone, SQL, NoSQL\n\n🤖 AI/ML: OpenAI APIs, Reinforcement Learning, RAG Systems, Machine Learning, NLP, Computer Vision\n\n📱 Mobile: Flutter, React Native, PWA Development\n\n☁️ Cloud: Firebase, Google Cloud Platform, AWS\n\n🔧 Tools: Git, GitHub, Docker, VS Code, Postman\n\n📊 Data Science: Python, Data Analysis, Visualization, Scikit-learn\n\n🎯 Other: JWT Authentication, OAuth, WebSockets, Microservices, Agile/Scrum';
-        }
-        else if (userInput.includes('contact') || userInput.includes('email') || userInput.includes('phone') || userInput.includes('reach') || userInput.includes('linkedin') || userInput.includes('github')) {
-          botResponse = 'Contact Information:\n\n📧 Email: cnniranjan72@gmail.com (Always available via email)\n\n📱 Phone: +91 9108269436 (Available for calls)\n\n📍 Location: Bengaluru, India (Available for remote work)\n\n💼 LinkedIn: https://www.linkedin.com/in/niranjan-c-n/\n\n🐙 GitHub: https://github.com/cnniranjan72\n\n📄 Resume: Available for download in the portfolio\n\nFeel free to reach out for collaborations, project opportunities, or just a friendly hello!';
-        }
-        else if (userInput.includes('education') || userInput.includes('college') || userInput.includes('university') || userInput.includes('degree') || userInput.includes('cgpa') || userInput.includes('amc')) {
-          botResponse = 'Education:\n\n🎓 B.E. in Computer Science and Engineering\n🏛️ AMC Engineering College, Bangalore\n📅 2023 – 2027\n📊 CGPA: 8.5\n\n📚 Key Coursework:\n• Data Structures and Applications\n• Operating Systems\n• Database Management Systems\n• Theory of Computation\n• Analysis and Design of Algorithms\n• Computer Networks\n• Artificial Intelligence\n• Software Engineering & Project Management\n• Machine Learning\n• Cloud Computing\n• Compiler Design\n\n🎯 Academic Focus: Building strong foundations in computer science with practical applications in AI/ML and full-stack development.';
-        }
-        else if (userInput.includes('hello') || userInput.includes('hi') || userInput.includes('hey') || userInput.includes('help')) {
-          botResponse = "Hello! I'm here to help you explore Niranjan's portfolio. You can ask me about:\n\n• About Niranjan\n• Projects\n• Experience\n• Skills\n• Contact Information\n• Education\n\nOr click the preset options below for quick information!";
-        }
-
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: botResponse,
-          sender: 'bot',
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, botMessage]);
-        setIsTyping(false);
-      }, 1000);
-    }
+      setMessages(prev => [...prev, botMessage]);
+      setIsTyping(false);
+    }, 800);
   };
 
   const toggleChat = () => {
@@ -255,7 +349,12 @@ const Chatbot = () => {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      handleSendMessage();
+                    }
+                  }}
                   placeholder="Ask about Niranjan..."
                   className="flex-1 px-3 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-lg text-sm focus:outline-none focus:border-cyan-500/40 transition-colors placeholder-muted-foreground"
                 />
