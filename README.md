@@ -34,6 +34,7 @@ I am a Computer Science undergraduate and Software Engineer passionate about bui
 
 ## 🎯 Featured Projects
 - **AIMirror** - Behavioral digital twin engine that builds an explainable cognitive identity model from social media activity
+- **BASTION** - AI agent control plane that intercepts tool calls, enforces policy, and records immutable audit events with causal replay
 - **IntelliMine** - AI-powered landmine detection with 98.2% accuracy
 - **AgriMind** - ML-driven crop recommendation platform
 - **Civitas** - AI-driven smart-city twin simulation

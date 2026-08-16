@@ -167,6 +167,17 @@ const PortfolioSection = () => {
       codeLink: "https://github.com/cnniranjan72/GameHive-Frontend-Project",
       icon: <Gamepad2 className="w-6 h-6" />,
     },
+    {
+      id: 13,
+      title: "BASTION — AI Agent Control Plane",
+      description:
+        "A control plane that intercepts every AI agent tool call, checks it against policy, blocks or escalates, and records immutable audit events — real-time prevention (not just logging) with full causal replay. Live in production.",
+      category: ["Featured", "AI/ML"],
+      tags: ["FastAPI", "React", "PostgreSQL", "Kafka", "Redis", "OpenTelemetry", "React Three Fiber", "Policy Engine", "RBAC"],
+      demoLink: "https://bastion-frontend.onrender.com",
+      codeLink: "#",
+      icon: <Shield className="w-6 h-6" />,
+    },
   ];
 
   const filteredProjects =
@@ -334,7 +345,7 @@ const PortfolioSection = () => {
                 {/* Enhanced Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   {/* Only show Demo button for AIMirror, Civitas, IntelliMine and AgriMind */}
-                  {(project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind")) && (
+                  {(project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind") || project.title.includes("BASTION")) && (
                     <motion.div
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
@@ -360,7 +371,7 @@ const PortfolioSection = () => {
                   <motion.div
                     whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    className={project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind") ? "flex-1" : "w-full"}
+                    className={project.title.includes("AIMirror") || project.title.includes("CIVITAS") || project.title.includes("IntelliMine") || project.title.includes("AgriMind") || project.title.includes("BASTION") ? "flex-1" : "w-full"}
                   >
                     <Button 
                       asChild 
