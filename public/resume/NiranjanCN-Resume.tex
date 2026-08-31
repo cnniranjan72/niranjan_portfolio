@@ -12,11 +12,30 @@
 
 \setstretch{1.0}
 \setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=12pt,itemsep=2pt,topsep=1pt}
+
+%==========================
+% SPACING
+%==========================
+
+\setlist[itemize]{
+    leftmargin=12pt,
+    itemsep=0.5pt,
+    topsep=0pt,
+    parsep=0pt,
+    partopsep=0pt
+}
 
 \titleformat{\section}{\large\bfseries}{}{0em}{}
-\titlespacing{\section}{0pt}{6pt}{2pt}
-\newcommand{\sectionline}{\vspace{-6pt}\noindent\rule{\linewidth}{0.5pt}\vspace{1.5pt}}
+
+% Reduced spacing around section headings
+\titlespacing*{\section}{0pt}{-1.5pt}{0pt}
+
+% Section separator
+\newcommand{\sectionline}{
+    \vspace{-9pt}
+    \noindent\rule{\linewidth}{0.5pt}
+    \vspace{-15pt}
+}
 
 \begin{document}
 
@@ -25,7 +44,7 @@
 %==========================
 
 \begin{center}
-{\LARGE \textbf{Niranjan C N}}\\[3pt]
+{\LARGE \textbf{Niranjan C N}}\\[5pt]
 
 \faPhone\ \href{tel:+919108269436}{+91 9108269436}
 \quad
@@ -45,9 +64,9 @@
 % SUMMARY
 %==========================
 
-\section*{\faBullseye\ Summary}
+\section*{Summary}
 
-Software Engineer specializing in AI systems and backend engineering with experience building production-grade AI platforms, scalable backend services, RAG pipelines, and enterprise knowledge systems using Python, FastAPI, PostgreSQL, GraphQL, Redis, Docker, and modern LLM technologies.
+Software Engineer specializing in AI systems and backend engineering with experience building production-grade AI platforms, scalable backend services, RAG pipelines, and enterprise knowledge systems using Python, FastAPI, PostgreSQL, Redis, Docker, and modern LLM technologies.
 
 \sectionline
 
@@ -55,7 +74,7 @@ Software Engineer specializing in AI systems and backend engineering with experi
 % EDUCATION
 %==========================
 
-\section*{\faGraduationCap\ Education}
+\section*{Education}
 
 \textbf{AMC Engineering College — B.E. Computer Science \& Engineering (CGPA: 8.5)}
 \hfill
@@ -67,7 +86,7 @@ Software Engineer specializing in AI systems and backend engineering with experi
 % EXPERIENCE
 %==========================
 
-\section*{\faBriefcase\ Experience}
+\section*{Experience}
 
 \textbf{AI Developer, Tribeca Softech — Remote}
 \hfill
@@ -77,17 +96,15 @@ Software Engineer specializing in AI systems and backend engineering with experi
 
 \item Architected production-grade AI backend services using \textbf{FastAPI}, \textbf{PostgreSQL (Neon)}, and asynchronous processing for scalable enterprise knowledge systems.
 
-\item Designed distributed ingestion and vectorization pipelines using \textbf{AWS S3}, \textbf{Redis}, \textbf{BullMQ}, and \textbf{pgvector} for scalable semantic retrieval.
-
+\item Designed distributed ingestion and vectorization pipelines using \textbf{AWS S3}, \textbf{Redis}, \textbf{BullMQ}, and \textbf{pgvector} for scalable semantic retrieval. 
 \item Built retrieval, evaluation, telemetry, and observability pipelines for enterprise RAG systems.
 
 \item Implemented GraphQL APIs, JWT authentication, RBAC, structured logging, Docker deployment, health monitoring, and workflow orchestration.
-
 \item Led architecture and implementation of multiple AI platform components emphasizing scalability, reliability, maintainability, and production readiness.
 
 \end{itemize}
 
-\vspace{3pt}
+\vspace{1.5pt}
 
 \textbf{Software Development Engineer, AeroAspire — Hybrid}
 \hfill
@@ -107,29 +124,34 @@ Software Engineer specializing in AI systems and backend engineering with experi
 % PROJECTS
 %==========================
 
-\section*{\faFolderOpen\ Projects}
+\section*{Projects}
 
-\textbf{AIMirror — Behavioral AI Digital Twin Platform}
+\textbf{BASTION — AI Agent Governance \& Runtime Control Plane}
 \hfill
-\href{https://github.com/cnniranjan72/AI-Mirror}{\faGithub}
+\href{https://github.com/cnniranjan72/BASTION}{github.com/cnniranjan72/BASTION}
 
 \begin{itemize}
 
-\item Built AIMirror, a production-grade behavioral digital twin platform that constructs explainable user personas from Instagram and YouTube activity using Chrome Extension, FastAPI, React, PostgreSQL (pgvector), and Docker.
+\item Built and deployed a production AI-agent governance platform (\textbf{FastAPI, PostgreSQL, Redis, Kafka, Docker, Kubernetes}) that intercepts and evaluates every agent tool call pre-execution, blocking, allowing, or escalating to human approval in real time; validated by \textbf{332/332 tests} against live infrastructure (no mocks).
 
-\item Designed end-to-end behavioral ingestion, semantic retrieval, RAG, vector search, identity construction, and multi-provider LLM pipelines supporting OpenAI, Anthropic, and Ollama.
+\item Designed an event-sourced architecture with a transactional outbox and Kafka-based distribution for durable, idempotent, at-least-once event delivery, feeding a live 3D execution-graph frontend (React, react-three-fiber) over WebSockets; implemented policy hot-reload across running instances via Redis pub/sub and RBAC across 4 roles.
+
+\item Profiled and resolved production performance bottlenecks using \textbf{py-spy} (OpenTelemetry export batching, database connection-pool sizing), and extended the platform to govern a real transacting agent (Razorpay integration) with policy-enforced spend limits and rate-based anomaly blocking; \textbf{100\% prevention across 20/20} live prompt-injection attempts.
 
 \end{itemize}
 
-\vspace{2pt}
+\vspace{1pt}
 
-\textbf{CIVITAS — AI Governance Simulation Platform}
+\textbf{AIMirror — Behavioral AI Digital Twin Platform}
 \hfill
-\href{https://github.com/cnniranjan72/civitas}{\faGithub}
+\href{https://github.com/cnniranjan72/AI-Mirror}{github.com/cnniranjan72/AI-Mirror}
 
 \begin{itemize}
 
-\item Developed an AI-powered governance simulation platform using PPO Reinforcement Learning for policy optimization, real-time urban simulations, and LLM-powered decision explainability.
+\item Built a production-grade behavioral digital twin platform that transforms Instagram Reels and YouTube activity into an explainable cognitive identity model using \textbf{Chrome Extension, FastAPI, React, PostgreSQL + pgvector}, and Docker.
+
+\item Engineered a deterministic cognitive pipeline spanning \textbf{behavioral ingestion, knowledge consolidation, 5-dimensional evidence scoring, rule-based inference, 9-profile identity construction, temporal snapshots, and contextual-bandit personalization}, with \textbf{384-dimensional} vector retrieval and multi-provider LLM verbalization.
+
 \end{itemize}
 
 \sectionline
@@ -138,7 +160,7 @@ Software Engineer specializing in AI systems and backend engineering with experi
 % SKILLS
 %==========================
 
-\section*{\faCode\ Skills}
+\section*{Skills}
 
 \textbf{Languages:}
 Python, Java, C++, JavaScript, TypeScript, Dart, C, HTML, CSS \\
@@ -149,7 +171,7 @@ LLMs, Agentic AI, RAG, Vector Databases, Embeddings, Semantic Search \\
 \textbf{Databases:}
 PostgreSQL, Redis, MongoDB, MySQL, Firestore, Pinecone, pgvector \\
 \textbf{Cloud \& Infrastructure:}
-Docker, Linux, AWS S3, BullMQ \\
+Docker, Kubernetes, Linux, AWS S3, BullMQ, Kafka \\
 \textbf{Developer Tools:}
 Git, Postman, Swagger, Playwright
 
@@ -159,11 +181,11 @@ Git, Postman, Swagger, Playwright
 % ADDITIONAL
 %==========================
 
-\section*{\faInfoCircle\ Additional Information}
+\section*{Additional Information}
 
 \textbf{Certifications:}
 Anthropic - Claude Code in Action, AI Fluency, AWS Cloud Practitioner Essentials, MongoDB for Students, The Complete Full-Stack Web Development Bootcamp
- \\
+\\
 \textbf{Languages:}
 English, Kannada, Hindi, Telugu
 
