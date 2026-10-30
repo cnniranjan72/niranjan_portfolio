@@ -252,7 +252,7 @@ const PortfolioSection = () => {
                 opacity: 1, 
                 scale: activeFilter === category ? [1, 1.08, 1] : 1,
                 boxShadow: activeFilter === category 
-                  ? ["0 0 20px rgba(236, 72, 153, 0.4)", "0 0 35px rgba(236, 72, 153, 0.8)", "0 0 20px rgba(236, 72, 153, 0.4)"]
+                  ? ["0 0 12px rgba(212, 255, 36, 0.25)", "0 0 24px rgba(212, 255, 36, 0.45)", "0 0 12px rgba(212, 255, 36, 0.25)"]
                   : "0 0 0px transparent"
               }}
               transition={{ 
@@ -329,7 +329,7 @@ const PortfolioSection = () => {
                       whileHover={{ 
                         scale: 1.05,
                         y: -1,
-                        backgroundColor: "rgba(255, 0, 255, 0.08)"
+                        backgroundColor: "rgba(212, 255, 36, 0.08)"
                       }}
                     >
                       <Badge

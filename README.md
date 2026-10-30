@@ -14,14 +14,15 @@ I am a Computer Science undergraduate and Software Engineer passionate about bui
 - **DevOps:** Docker, Git, GitHub Actions
 
 ## 🌟 Features
-- **Cyberpunk Neon Theme** - Modern neon aesthetic with cyan/pink color scheme
-- **Animated Neon Grid Background** - Consistent across all sections
-- **Zero-Lag Neon Cursor** - Smooth, responsive cursor glow effect
+- **Midnight Professional Theme** - Refined dark aesthetic with Electric Cobalt Blue (#1558C9) and Acid Lime (#D4FF24) accents
+- **Subtle Grid Background** - Consistent cobalt grid backdrop across all sections
+- **Zero-Lag Cursor Glow** - Smooth, responsive cursor trail effect
 - **Interactive Tech Icons** - Floating tech stack icons with hover effects
 - **Enhanced Social Links** - Glass-morphism grow animations
 - **Project Cards** - Unique icons per project, demo buttons for live apps
 - **Capability Chips** - Professional skill highlights
-- **Smooth Scrolling** - Custom neon scroll bar
+- **AI Portfolio Assistant** - Built-in chatbot answering questions about projects, experience, skills, and contact info
+- **Smooth Scrolling** - Custom scroll progress bar
 - **Fully Responsive** - Mobile-friendly design
 
 ## 📂 Sections
@@ -53,7 +54,7 @@ You can find the source code on [GitHub](https://github.com/cnniranjan72/niranja
 
 ## 🛠️ Development
 - **Framework:** React 18 with TypeScript
-- **Styling:** Tailwind CSS with custom neon theme
+- **Styling:** Tailwind CSS with a custom Midnight/Cobalt/Lime theme
 - **Animations:** Framer Motion for smooth interactions
 - **Build Tool:** Vite for fast development
 - **Deployment:** Vercel for optimal performance

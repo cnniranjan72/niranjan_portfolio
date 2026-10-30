@@ -434,9 +434,9 @@ const HeroSection = () => {
 
                     scale: 1.2, 
 
-                    color: "#ff00ff",
+                    color: "#D4FF24",
 
-                    textShadow: "0 0 20px rgba(255, 0, 255, 0.8)"
+                    textShadow: "0 0 16px rgba(212, 255, 36, 0.35)"
 
                   }}
 

@@ -56,8 +56,8 @@ const FloatingToolbar = () => {
         className="fixed top-0 left-0 h-1 z-50"
         style={{ 
           width: `${scrollProgress}%`,
-          background: 'linear-gradient(90deg, #00ffff, #ff00ff, #00ffff)',
-          boxShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+          background: 'linear-gradient(90deg, #1558C9, #4D8AF0, #D4FF24)',
+          boxShadow: '0 2px 12px rgba(21, 88, 201, 0.45)',
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -75,8 +75,8 @@ const FloatingToolbar = () => {
         <motion.div
           className="neon-card border border-cyan-500/30 backdrop-blur-md rounded-full px-4 sm:px-6 py-3 flex items-center space-x-4 sm:space-x-6 shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
           whileHover={{ 
-            boxShadow: '0 0 30px rgba(0, 255, 255, 0.3), 0 0 60px rgba(255, 0, 255, 0.2)',
-            borderColor: 'rgba(0, 255, 255, 0.5)'
+            boxShadow: '0 8px 30px rgba(21, 88, 201, 0.25)',
+            borderColor: 'rgba(77, 138, 240, 0.45)'
           }}
         >
           <TooltipProvider delayDuration={0} skipDelayDuration={0}>
@@ -102,8 +102,8 @@ const FloatingToolbar = () => {
                     whileHover={{ 
                       scale: 1.15,
                       y: -3,
-                      backgroundColor: 'rgba(0, 255, 255, 0.1)',
-                      borderColor: 'rgba(0, 255, 255, 0.3)'
+                      backgroundColor: 'rgba(21, 88, 201, 0.1)',
+                      borderColor: 'rgba(77, 138, 240, 0.3)'
                     }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -111,7 +111,7 @@ const FloatingToolbar = () => {
                       className="hover:neon-text-cyan transition-colors duration-300"
                       whileHover={{ 
                         rotate: [0, 5, -5, 0],
-                        textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+                        textShadow: '0 0 8px rgba(77, 138, 240, 0.4)'
                       }}
                       transition={{ duration: 0.3 }}
                     >

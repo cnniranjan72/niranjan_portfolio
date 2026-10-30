@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+﻿import { lazy, Suspense } from 'react'
 
 // Lazy load the 3D scene to prevent initial conflicts
 const LazyVerySimpleNeonScene = lazy(() => 

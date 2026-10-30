@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Code, Database, Terminal, GitBranch, Package, Cpu } from 'lucide-react'
 
 const SimpleFloatingTechLogos = () => {

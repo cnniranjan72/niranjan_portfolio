@@ -141,7 +141,7 @@ const SkillsSection = () => {
                     whileHover={{ 
                       scale: 1.05, 
                       rotate: 3,
-                      backgroundColor: "rgba(0, 255, 255, 0.15)"
+                      backgroundColor: "rgba(21, 88, 201, 0.15)"
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -163,8 +163,8 @@ const SkillsSection = () => {
                       whileHover={{ 
                         scale: 1.05,
                         y: -1,
-                        backgroundColor: "rgba(0, 255, 255, 0.08)",
-                        borderColor: "rgba(0, 255, 255, 0.2)"
+                        backgroundColor: "rgba(21, 88, 201, 0.08)",
+                        borderColor: "rgba(77, 138, 240, 0.35)"
                       }}
                       whileTap={{ scale: 0.95 }}
                     >

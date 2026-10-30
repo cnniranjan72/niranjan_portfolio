@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 
 const NeonGridBackground = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,11 +10,11 @@ const NeonGridBackground = ({ children }: { children: React.ReactNode }) => {
           className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-pink-500/5"
           animate={{
             background: [
-              'linear-gradient(45deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%)',
-              'linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%)',
-              'linear-gradient(225deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%)',
-              'linear-gradient(315deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%)',
-              'linear-gradient(45deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%)',
+              'linear-gradient(45deg, rgba(21, 88, 201, 0.04) 0%, transparent 50%, rgba(212, 255, 36, 0.03) 100%)',
+              'linear-gradient(135deg, rgba(21, 88, 201, 0.04) 0%, transparent 50%, rgba(212, 255, 36, 0.03) 100%)',
+              'linear-gradient(225deg, rgba(21, 88, 201, 0.04) 0%, transparent 50%, rgba(212, 255, 36, 0.03) 100%)',
+              'linear-gradient(315deg, rgba(21, 88, 201, 0.04) 0%, transparent 50%, rgba(212, 255, 36, 0.03) 100%)',
+              'linear-gradient(45deg, rgba(21, 88, 201, 0.04) 0%, transparent 50%, rgba(212, 255, 36, 0.03) 100%)',
             ],
           }}
           transition={{

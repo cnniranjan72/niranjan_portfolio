@@ -143,7 +143,7 @@ const AboutSection = () => {
                     whileHover={{ 
                       scale: 1.05, 
                       rotate: 3,
-                      backgroundColor: "rgba(0, 255, 255, 0.15)"
+                      backgroundColor: "rgba(21, 88, 201, 0.15)"
                     }}
                     transition={{ duration: 0.3 }}
                   >

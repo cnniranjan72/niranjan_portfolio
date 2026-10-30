@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion'
+﻿import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 interface AnimatedHeadingProps {
@@ -65,7 +65,7 @@ export default function SectionHeading({
           className="inline-block"
           whileHover={{ 
             scale: 1.05,
-            textShadow: "0 0 30px rgba(0, 255, 255, 1)"
+            textShadow: "0 0 30px rgba(21, 88, 201, 0.45)"
           }}
           transition={{ type: "spring", stiffness: 400 }}
         >
@@ -79,7 +79,7 @@ export default function SectionHeading({
             className="inline-block"
             whileHover={{ 
               scale: 1.02,
-              color: "#00ffff"
+              color: "#1558C9"
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -188,8 +188,8 @@ export function AnimatedText({
           className="inline-block"
           whileHover={{
             scale: 1.2,
-            color: "#ff00ff",
-            textShadow: "0 0 20px rgba(255, 0, 255, 0.8)"
+            color: "#D4FF24",
+            textShadow: "0 0 20px rgba(212, 255, 36, 0.35)"
           }}
         >
           {letter === ' ' ? '\u00A0' : letter}

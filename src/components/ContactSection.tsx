@@ -103,7 +103,7 @@ const ContactSection = () => {
                     whileHover={{ 
                       scale: 1.1, 
                       rotate: 5,
-                      backgroundColor: "rgba(0, 255, 255, 0.2)"
+                      backgroundColor: "rgba(21, 88, 201, 0.2)"
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -143,7 +143,7 @@ const ContactSection = () => {
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
-                        backgroundColor: "rgba(255, 0, 255, 0.2)"
+                        backgroundColor: "rgba(212, 255, 36, 0.15)"
                       }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.3 }}

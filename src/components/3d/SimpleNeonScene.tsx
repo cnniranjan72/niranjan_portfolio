@@ -1,4 +1,4 @@
-import { useRef, Suspense } from 'react'
+﻿import { useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Stars } from '@react-three/drei'
 import * as THREE from 'three'
@@ -62,8 +62,8 @@ function WorkingCharacter() {
       <mesh position={[0, 0, 0]} rotation={[0.2, 0, 0]}>
         <boxGeometry args={[1.2, 0.05, 0.8]} />
         <meshStandardMaterial 
-          color="#00ffff" 
-          emissive="#00ffff"
+          color="#1558C9" 
+          emissive="#1558C9"
           emissiveIntensity={0.8}
           roughness={0}
           metalness={1}
@@ -157,8 +157,8 @@ export default function SimpleNeonScene() {
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={1.2} color="#00ffff" />
-        <pointLight position={[-10, -10, -10]} intensity={0.8} color="#ff00ff" />
+        <pointLight position={[10, 10, 10]} intensity={1.2} color="#1558C9" />
+        <pointLight position={[-10, -10, -10]} intensity={0.8} color="#D4FF24" />
         <pointLight position={[0, 10, -10]} intensity={0.6} color="#00ff00" />
         
         <Suspense fallback={null}>
@@ -167,8 +167,8 @@ export default function SimpleNeonScene() {
           <Particles />
           
           {/* Floating tech boxes */}
-          <TechBox position={[3, 2, -2]} color="#00ffff" delay={0} />
-          <TechBox position={[-3, 1.5, -1]} color="#ff00ff" delay={0.5} />
+          <TechBox position={[3, 2, -2]} color="#1558C9" delay={0} />
+          <TechBox position={[-3, 1.5, -1]} color="#D4FF24" delay={0.5} />
           <TechBox position={[2, -1, 2]} color="#00ff00" delay={1} />
           <TechBox position={[-2, 3, 1]} color="#ffff00" delay={1.5} />
           <TechBox position={[0, 4, -3]} color="#ff0080" delay={2} />
@@ -180,7 +180,7 @@ export default function SimpleNeonScene() {
             <meshStandardMaterial 
               color="#0a0a0a" 
               roughness={0.8}
-              emissive="#00ffff"
+              emissive="#1558C9"
               emissiveIntensity={0.05}
             />
           </mesh>

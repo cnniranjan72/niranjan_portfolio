@@ -1,4 +1,4 @@
-import { useRef, useMemo, Suspense } from 'react'
+﻿import { useRef, useMemo, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Stars, OrbitControls, Text, Box, Sphere, Torus } from '@react-three/drei'
 import * as THREE from 'three'
@@ -86,8 +86,8 @@ function WorkingCharacter() {
       <mesh ref={laptopRef} position={[0, 0, 0]} rotation={[0.2, 0, 0]}>
         <boxGeometry args={[1.6, 0.05, 1]} />
         <meshStandardMaterial 
-          color="#00ffff" 
-          emissive="#00ffff"
+          color="#1558C9" 
+          emissive="#1558C9"
           emissiveIntensity={0.8}
           roughness={0}
           metalness={1}
@@ -153,7 +153,7 @@ function FloatingParticles() {
       const y = (Math.random() - 0.5) * 15
       const z = (Math.random() - 0.5) * 15
       const size = Math.random() * 0.03 + 0.01
-      const color = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00'][Math.floor(Math.random() * 4)]
+      const color = ['#1558C9', '#D4FF24', '#00ff00', '#ffff00'][Math.floor(Math.random() * 4)]
       temp.push({ x, y, z, size, color })
     }
     return temp
@@ -184,7 +184,7 @@ function GridFloor() {
         color="#0a0a0a" 
         roughness={0.8}
         metalness={0.2}
-        emissive="#00ffff"
+        emissive="#1558C9"
         emissiveIntensity={0.05}
       />
     </mesh>
@@ -197,11 +197,11 @@ function CodeBlocks() {
     <>
       <mesh position={[-4, 2, -2]} rotation={[0, Math.PI / 4, 0]}>
         <boxGeometry args={[0.8, 0.8, 0.1]} />
-        <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.3} />
+        <meshStandardMaterial color="#1558C9" emissive="#1558C9" emissiveIntensity={0.3} />
       </mesh>
       <mesh position={[4, 1, -3]} rotation={[0, -Math.PI / 6, 0]}>
         <boxGeometry args={[0.6, 0.6, 0.1]} />
-        <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.3} />
+        <meshStandardMaterial color="#D4FF24" emissive="#D4FF24" emissiveIntensity={0.3} />
       </mesh>
       <mesh position={[3, 3, 2]} rotation={[Math.PI / 6, 0, 0]}>
         <boxGeometry args={[0.7, 0.7, 0.1]} />
@@ -219,15 +219,15 @@ export default function NeonScene() {
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffff" />
-        <pointLight position={[-10, -10, -10]} intensity={0.8} color="#ff00ff" />
+        <pointLight position={[10, 10, 10]} intensity={1.5} color="#1558C9" />
+        <pointLight position={[-10, -10, -10]} intensity={0.8} color="#D4FF24" />
         <pointLight position={[0, 10, -10]} intensity={0.6} color="#00ff00" />
         <spotLight
           position={[0, 8, 5]}
           angle={0.4}
           penumbra={1}
           intensity={1.2}
-          color="#00ffff"
+          color="#1558C9"
         />
         
         <Suspense fallback={null}>
@@ -238,14 +238,14 @@ export default function NeonScene() {
           <CodeBlocks />
           
           {/* Enhanced floating tech logos */}
-          <TechLogo position={[4, 3, -2]} color="#00ffff" rotation={[0, 0, 0]} shape="torus" />
-          <TechLogo position={[-4, 2, -1]} color="#ff00ff" rotation={[0, Math.PI / 4, 0]} shape="box" />
+          <TechLogo position={[4, 3, -2]} color="#1558C9" rotation={[0, 0, 0]} shape="torus" />
+          <TechLogo position={[-4, 2, -1]} color="#D4FF24" rotation={[0, Math.PI / 4, 0]} shape="box" />
           <TechLogo position={[3, -1, 2]} color="#00ff00" rotation={[Math.PI / 4, 0, 0]} shape="sphere" />
           <TechLogo position={[-3, 4, 1]} color="#ffff00" rotation={[0, Math.PI / 2, 0]} shape="torus" />
           <TechLogo position={[0, 5, -3]} color="#ff0080" rotation={[Math.PI / 6, Math.PI / 6, 0]} shape="box" />
           <TechLogo position={[5, -2, 1]} color="#8000ff" rotation={[0, Math.PI / 3, 0]} shape="sphere" />
-          <TechLogo position={[-5, 1, 2]} color="#00ffff" rotation={[Math.PI / 8, 0, Math.PI / 8]} shape="torus" />
-          <TechLogo position={[2, 6, -1]} color="#ff00ff" rotation={[0, Math.PI / 5, Math.PI / 5]} shape="box" />
+          <TechLogo position={[-5, 1, 2]} color="#1558C9" rotation={[Math.PI / 8, 0, Math.PI / 8]} shape="torus" />
+          <TechLogo position={[2, 6, -1]} color="#D4FF24" rotation={[0, Math.PI / 5, Math.PI / 5]} shape="box" />
         </Suspense>
         
         <OrbitControls 

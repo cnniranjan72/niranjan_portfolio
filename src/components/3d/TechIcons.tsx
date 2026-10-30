@@ -1,4 +1,4 @@
-export const ReactLogo = ({ className, color }: { className?: string; color?: string }) => (
+﻿export const ReactLogo = ({ className, color }: { className?: string; color?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill={color || "currentColor"}>
     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18.2c-4.519 0-8.2-3.681-8.2-8.2S7.481 3.8 12 3.8s8.2 3.681 8.2 8.2-3.681 8.2-8.2 8.2z"/>
     <path d="M12 7.5c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm0 7c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/>

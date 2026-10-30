@@ -1,4 +1,4 @@
-import { useRef, Suspense } from 'react'
+﻿import { useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Stars } from '@react-three/drei'
 import * as THREE from 'three'
@@ -18,8 +18,8 @@ function SimpleCube() {
     <mesh ref={meshRef} position={[0, 1, 0]}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial 
-        color="#00ffff" 
-        emissive="#00ffff"
+        color="#1558C9" 
+        emissive="#1558C9"
         emissiveIntensity={0.3}
       />
     </mesh>
@@ -53,7 +53,7 @@ function BasicParticles() {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial color="#ff00ff" size={0.05} />
+      <pointsMaterial color="#D4FF24" size={0.05} />
     </points>
   )
 }
@@ -76,8 +76,8 @@ export default function VerySimpleNeonScene() {
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#00ffff" />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff00ff" />
+        <pointLight position={[10, 10, 10]} intensity={1} color="#1558C9" />
+        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#D4FF24" />
         
         <Suspense fallback={null}>
           <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />

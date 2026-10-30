@@ -21,6 +21,10 @@ const EducationSection = () => {
         "Machine Learning",
         "Cloud Computing",
         "Compilor Design",
+        "Big Data Analytics",
+        "Parallel and Distributed Computing",
+        "Internet of Things (IoT)",
+        "Cryptography and Network Security",
       ],
     },
   ];
@@ -95,7 +99,7 @@ const EducationSection = () => {
                     whileHover={{ 
                       scale: 1.1, 
                       rotate: 5,
-                      backgroundColor: "rgba(0, 255, 255, 0.2)"
+                      backgroundColor: "rgba(21, 88, 201, 0.2)"
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -138,7 +142,7 @@ const EducationSection = () => {
                         whileHover={{ 
                           scale: 1.05,
                           x: 5,
-                          color: "#00ffff"
+                          color: "#4D8AF0"
                         }}
                         className="flex items-center gap-2 text-muted-foreground hover:text-cyan-400 transition-colors cursor-default"
                       >
