@@ -43,6 +43,51 @@ export function setScrollLocked(locked: boolean) {
   document.documentElement.style.overflow = locked ? "hidden" : "";
 }
 
+/* ---------- Focus trap for overlays ---------- */
+
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select, iframe, [tabindex]:not([tabindex="-1"])';
+
+/**
+ * While `active`, keep Tab/Shift+Tab inside `ref` and move focus into it; on close, return
+ * focus to whatever opened the overlay.
+ */
+export function useFocusTrap(active: boolean, ref: React.RefObject<HTMLElement>) {
+  useEffect(() => {
+    if (!active) return;
+    const el = ref.current;
+    if (!el) return;
+    const opener = document.activeElement as HTMLElement | null;
+    const items = () => [...el.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((n) => n.getClientRects().length > 0);
+    if (!el.contains(document.activeElement)) (items()[0] ?? el).focus({ preventScroll: true });
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const list = items();
+      if (!list.length) {
+        e.preventDefault();
+        return;
+      }
+      const first = list[0];
+      const last = list[list.length - 1];
+      const inside = el.contains(document.activeElement);
+      if (e.shiftKey && (!inside || document.activeElement === first)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey, true);
+    return () => {
+      document.removeEventListener("keydown", onKey, true);
+      // Defer: the page under a full-screen overlay is briefly visibility:hidden, and hidden
+      // elements cannot take focus.
+      if (opener && document.contains(opener)) setTimeout(() => opener.focus({ preventScroll: true }), 150);
+    };
+  }, [active, ref]);
+}
+
 /* ---------- Magnetic wrapper ---------- */
 
 export function Magnetic({ children, strength = 0.35, className = "" }: { children: ReactNode; strength?: number; className?: string }) {

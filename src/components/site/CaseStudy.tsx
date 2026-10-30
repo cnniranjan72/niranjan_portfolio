@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Github, Link2, Play } from "lucide-react";
 import { CASES, CaseStudy as Case, caseBySlug } from "./cases";
 import { closeCase, openCase } from "./caseRoute";
-import { Magnetic, setScrollLocked } from "./primitives";
+import { Magnetic, setScrollLocked, useFocusTrap } from "./primitives";
+import { Peek, PeekLabel } from "./Peek";
 import { sfx } from "./sound";
 import { DEEP_DIVES } from "./deepdives";
 import { PROJECTS } from "./data";
@@ -318,6 +319,61 @@ function CasePage({ c, scroller }: { c: Case; scroller: React.RefObject<HTMLDivE
   );
 }
 
+/** Top-bar controls: copy a shareable link, and step to the previous / next case study. */
+function CaseNav({ slug }: { slug: string }) {
+  const [copied, setCopied] = useState(false);
+  const i = CASES.findIndex((x) => x.slug === slug);
+  const n = CASES.length;
+  const prev = CASES[(i + n - 1) % n];
+  const next = CASES[(i + 1) % n];
+  const pill = "rounded-full border border-white/15 bg-black/50 backdrop-blur-xl";
+
+  const copy = () => {
+    void navigator.clipboard?.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    });
+  };
+
+  const step = (target: (typeof CASES)[number], dirLabel: string, icon: React.ReactNode) => (
+    <Peek
+      side="bottom"
+      width={220}
+      content={
+        <div>
+          <PeekLabel>{dirLabel} · ← → keys</PeekLabel>
+          <div className="mt-1 font-display text-base text-white">{target.title}</div>
+          <div className="text-xs text-white/60">{target.tagline}</div>
+        </div>
+      }
+    >
+      <button
+        onClick={() => openCase(target.slug)}
+        aria-label={`${dirLabel} case study: ${target.title}`}
+        className="grid h-10 w-10 place-items-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+      >
+        {icon}
+      </button>
+    </Peek>
+  );
+
+  return (
+    <div className="flex items-center gap-2">
+      <button onClick={copy} className={`${pill} flex h-12 items-center gap-2 px-4 text-sm text-white/80 transition-colors hover:border-white/40 hover:text-white`}>
+        {copied ? <Check size={15} className="text-lime" /> : <Link2 size={15} />}
+        <span className="hidden sm:inline">{copied ? "Link copied" : "Copy link"}</span>
+      </button>
+      <div className={`${pill} flex h-12 items-center px-1`}>
+        {step(prev, "Previous", <ArrowLeft size={16} />)}
+        <span className="hidden px-2 font-mono text-[11px] tabular-nums text-white/60 md:block">
+          {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
+        </span>
+        {step(next, "Next", <ArrowRight size={16} />)}
+      </div>
+    </div>
+  );
+}
+
 export function CaseStudyOverlay({ slug }: { slug: string | null }) {
   const scroller = useRef<HTMLDivElement>(null);
   const c = slug ? caseBySlug(slug) : undefined;
@@ -328,12 +384,26 @@ export function CaseStudyOverlay({ slug }: { slug: string | null }) {
     document.documentElement.classList.add("case-open");
     sfx.open();
     scroller.current?.scrollTo({ top: 0 });
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeCase();
-    window.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-    };
+    return undefined;
   }, [c]);
+
+  // Esc closes; ← / → flip between case studies (unless typing or using the video player).
+  useEffect(() => {
+    if (!c) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") return closeCase();
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      const t = e.target as HTMLElement | null;
+      if (t?.closest("input, textarea, [contenteditable], .pitch-player, [role=slider]")) return;
+      const i = CASES.findIndex((x) => x.slug === c.slug);
+      const n = CASES.length;
+      openCase(CASES[(i + (e.key === "ArrowRight" ? 1 : n - 1)) % n].slug);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [c]);
+
+  useFocusTrap(!!c, scroller);
 
   useEffect(() => {
     if (!slug) {
@@ -375,9 +445,7 @@ export function CaseStudyOverlay({ slug }: { slug: string | null }) {
                   <ArrowLeft size={16} /> Back to work
                 </button>
               </Magnetic>
-              <span className="hidden rounded-full border border-white/10 bg-black/50 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-white/50 backdrop-blur-xl sm:block">
-                ESC to close
-              </span>
+              <CaseNav slug={c.slug} />
             </div>
             <div className="-mt-[72px]">
               <CasePage c={c} scroller={scroller} />

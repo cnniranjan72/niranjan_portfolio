@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Command } from "cmdk";
 import { ArrowUpRight, Copy, FileText, GitFork, Github, Hash, Linkedin, Mail, Star } from "lucide-react";
 import { NAV, PROFILE, PROJECTS } from "./data";
-import { RevealLines, SectionLabel, scrollToId } from "./primitives";
+import { RevealLines, SectionLabel, scrollToId, useFocusTrap } from "./primitives";
 import { CASES } from "./cases";
 import { openCase } from "./caseRoute";
 import { openResume } from "./Resume";
@@ -71,6 +71,8 @@ export function openCommandPalette() {
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [toast, setToast] = useState("");
+  const panel = useRef<HTMLDivElement>(null);
+  useFocusTrap(open, panel);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -116,6 +118,10 @@ export function CommandPalette() {
             onClick={() => setOpen(false)}
           >
             <motion.div
+              ref={panel}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Command menu"
               className="w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-[#070a12]/95 shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
               initial={{ opacity: 0, y: -20, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { ElementRef, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Float, Lightformer, MeshDistortMaterial, PerformanceMonitor } from "@react-three/drei";
+import { Environment, Float, Html, Lightformer, MeshDistortMaterial, PerformanceMonitor } from "@react-three/drei";
 import { Bloom, ChromaticAberration, EffectComposer, Vignette } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
@@ -21,6 +21,13 @@ const CORE_POS = new THREE.Vector3(2.2, 0, 0);
 const GLOBE_POS = new THREE.Vector3(3, 0, -100);
 
 const pointer = { x: 0, y: 0 };
+
+// Core interaction, shared between the core and the particle field.
+const coreFx = { hovering: false, hover: 0, shockAt: -100 };
+const smooth01 = (x: number) => {
+  const t = THREE.MathUtils.clamp(x, 0, 1);
+  return t * t * (3 - 2 * t);
+};
 if (typeof window !== "undefined") {
   window.addEventListener(
     "pointermove",
@@ -144,12 +151,47 @@ function Core() {
     []
   );
   const v = useMemo(() => new THREE.Vector3(), []);
+  const hit = useRef<THREE.Mesh>(null);
+  const distort = useRef<ElementRef<typeof MeshDistortMaterial>>(null);
+  const ndc = useMemo(() => new THREE.Vector2(), []);
+  const clock = useThree((st) => st.clock);
+
+  // Click the core to send a shockwave through the particle field.
+  useEffect(() => {
+    const down = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" && e.button === 0 && coreFx.hovering) coreFx.shockAt = clock.elapsedTime;
+    };
+    window.addEventListener("pointerdown", down);
+    return () => window.removeEventListener("pointerdown", down);
+  }, [clock]);
 
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
     const g = group.current;
+
+    // Hover: raycast the global pointer against an invisible hit sphere, hero only.
+    let over = false;
+    if (hit.current && window.scrollY < window.innerHeight * 0.6) {
+      ndc.set(pointer.x, pointer.y);
+      state.raycaster.setFromCamera(ndc, state.camera);
+      over = state.raycaster.intersectObject(hit.current, false).length > 0;
+    }
+    if (over !== coreFx.hovering) {
+      coreFx.hovering = over;
+      document.documentElement.classList.toggle("core-hover", over);
+    }
+    coreFx.hover = THREE.MathUtils.lerp(coreFx.hover, over ? 1 : 0, 1 - Math.exp(-delta * 6));
+    const since = t - coreFx.shockAt;
+    const shock = since >= 0 && since < 2 ? Math.exp(-since * 3.2) * Math.sin(since * 18) : 0;
+    if (distort.current) {
+      distort.current.distort = 0.38 + coreFx.hover * 0.22 + Math.max(0, shock) * 0.3;
+      // Ripple faster while hovered (the material advances its own time at the base speed).
+      distort.current.time += delta * coreFx.hover * 2.2;
+    }
+
     if (g) {
-      g.rotation.y += delta * 0.15;
+      g.scale.setScalar(1 + coreFx.hover * 0.07 + shock * 0.14);
+      g.rotation.y += delta * (0.15 + coreFx.hover * 0.35 + (since >= 0 && since < 1.5 ? (1.5 - since) * 1.4 : 0));
       g.rotation.x = THREE.MathUtils.lerp(g.rotation.x, pointer.y * 0.4, 0.05);
       g.rotation.z = THREE.MathUtils.lerp(g.rotation.z, -pointer.x * 0.3, 0.05);
     }
@@ -157,7 +199,7 @@ function Core() {
       shell.current.rotation.x = t * 0.12;
       shell.current.rotation.y = -t * 0.18;
     }
-    if (inner.current) inner.current.scale.setScalar(1 + Math.sin(t * 2.2) * 0.06);
+    if (inner.current) inner.current.scale.setScalar((1 + Math.sin(t * 2.2) * 0.06) * (1 + coreFx.hover * 0.6));
     if (ringA.current) ringA.current.rotation.z += delta * 0.35;
     if (ringB.current) ringB.current.rotation.z -= delta * 0.22;
     if (ringC.current) ringC.current.rotation.z += delta * 0.12;
@@ -174,13 +216,18 @@ function Core() {
       <Float speed={1.6} rotationIntensity={0.4} floatIntensity={0.8}>
         <mesh>
           <icosahedronGeometry args={[1.35, 32]} />
-          <MeshDistortMaterial color={COBALT} metalness={0.95} roughness={0.12} distort={0.38} speed={1.8} envMapIntensity={1.4} />
+          <MeshDistortMaterial ref={distort} color={COBALT} metalness={0.95} roughness={0.12} distort={0.38} speed={1.8} envMapIntensity={1.4} />
         </mesh>
         <mesh ref={inner}>
           <sphereGeometry args={[0.32, 32, 32]} />
           <meshBasicMaterial color={LIME} toneMapped={false} />
         </mesh>
       </Float>
+      {/* invisible hit target for hover/click */}
+      <mesh ref={hit} visible={false}>
+        <sphereGeometry args={[1.7, 16, 16]} />
+        <meshBasicMaterial />
+      </mesh>
       <mesh ref={shell}>
         <icosahedronGeometry args={[2.05, 1]} />
         <meshBasicMaterial color={COBALT_LIGHT} wireframe transparent opacity={0.22} />
@@ -211,9 +258,21 @@ function Core() {
 
 function Tunnel() {
   const rings = useRef<(THREE.Mesh | null)[]>([]);
+  const rails = useRef<(THREE.Mesh | null)[]>([]);
   const COUNT = 18;
   useFrame((state) => {
     const t = state.clock.elapsedTime;
+    // Full brightness on approach; dimmed once inside, where cards sit on top of it.
+    const inside = smooth01((-5 - state.camera.position.z) / 8);
+    const k = 1 - inside * 0.6;
+    rings.current.forEach((r) => {
+      const m = r?.material as THREE.MeshBasicMaterial | undefined;
+      if (m) m.opacity = (m.userData.base as number) * k;
+    });
+    rails.current.forEach((r) => {
+      const m = r?.material as THREE.MeshBasicMaterial | undefined;
+      if (m) m.opacity = 0.35 * k;
+    });
     rings.current.forEach((r, i) => {
       if (!r) return;
       r.rotation.z = t * (i % 2 ? 0.15 : -0.12) + i * 0.4;
@@ -229,14 +288,14 @@ function Tunnel() {
         return (
           <mesh key={i} ref={(el) => (rings.current[i] = el)} position={[0, 0, z]}>
             <torusGeometry args={[4.2, i % 3 === 0 ? 0.018 : 0.008, 8, i % 2 ? 6 : 120]} />
-            <meshBasicMaterial color={color} transparent opacity={i % 3 === 2 ? 0.3 : 0.85} toneMapped={false} />
+            <meshBasicMaterial color={color} transparent opacity={i % 3 === 2 ? 0.3 : 0.85} userData={{ base: i % 3 === 2 ? 0.3 : 0.85 }} toneMapped={false} />
           </mesh>
         );
       })}
       {Array.from({ length: 10 }, (_, i) => {
         const a = (i / 10) * Math.PI * 2;
         return (
-          <mesh key={`rail${i}`} position={[Math.cos(a) * 4.2, Math.sin(a) * 4.2, -24]}>
+          <mesh key={`rail${i}`} ref={(el) => (rails.current[i] = el)} position={[Math.cos(a) * 4.2, Math.sin(a) * 4.2, -24]}>
             <boxGeometry args={[0.012, 0.012, 34]} />
             <meshBasicMaterial color={COBALT_LIGHT} transparent opacity={0.35} />
           </mesh>
@@ -336,9 +395,13 @@ function DataStreams() {
     if (m.instanceColor) m.instanceColor.needsUpdate = true;
   }, [items]);
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     const m = mesh.current;
     if (!m) return;
+    const mat = m.material as THREE.MeshBasicMaterial;
+    mat.opacity = smooth01((-71 - state.camera.position.z) / 6);
+    m.visible = mat.opacity > 0.01;
+    if (!m.visible) return;
     items.forEach((it, i) => {
       it.y += it.speed * delta;
       if (it.y > 7) it.y = -7;
@@ -353,47 +416,98 @@ function DataStreams() {
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, COUNT]}>
       <boxGeometry args={[0.025, 1, 0.025]} />
-      <meshBasicMaterial toneMapped={false} />
+      <meshBasicMaterial toneMapped={false} transparent opacity={0} />
     </instancedMesh>
   );
 }
 
 /* ---------- Globe (contact) ---------- */
 
+const R = 2.6;
+const latLon = (lat: number, lon: number, r = R) => {
+  const la = THREE.MathUtils.degToRad(lat);
+  const lo = THREE.MathUtils.degToRad(lon);
+  return new THREE.Vector3(Math.cos(la) * Math.cos(lo) * r, Math.sin(la) * r, -Math.cos(la) * Math.sin(lo) * r);
+};
+const HOME = latLon(12.97, 77.59); // Bangalore
+const CITIES: [number, number][] = [
+  [37.77, -122.42], // San Francisco
+  [40.71, -74.0], // New York
+  [51.51, -0.13], // London
+  [52.52, 13.4], // Berlin
+  [25.2, 55.27], // Dubai
+  [1.35, 103.82], // Singapore
+  [35.68, 139.69], // Tokyo
+  [-33.87, 151.21], // Sydney
+];
+// Yaw that turns Bangalore toward the camera, which views the globe from slightly to its left.
+const HOME_YAW = Math.atan2(-HOME.x, HOME.z) - 0.42;
+
 function Globe() {
   const group = useRef<THREE.Group>(null);
+  const pulses = useRef<(THREE.Mesh | null)[]>([]);
+  const halo = useRef<THREE.Mesh>(null);
+  const label = useRef<HTMLDivElement>(null);
+  const tmp = useMemo(() => new THREE.Vector3(), []);
+  const normal = useMemo(() => new THREE.Vector3(), []);
+
   const dots = useMemo(() => {
     const n = 2200;
     const arr = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
       const phi = Math.acos(1 - (2 * (i + 0.5)) / n);
       const theta = Math.PI * (1 + Math.sqrt(5)) * i;
-      arr[i * 3] = Math.cos(theta) * Math.sin(phi) * 2.6;
-      arr[i * 3 + 1] = Math.cos(phi) * 2.6;
-      arr[i * 3 + 2] = Math.sin(theta) * Math.sin(phi) * 2.6;
+      arr[i * 3] = Math.cos(theta) * Math.sin(phi) * R;
+      arr[i * 3 + 1] = Math.cos(phi) * R;
+      arr[i * 3 + 2] = Math.sin(theta) * Math.sin(phi) * R;
     }
     return arr;
   }, []);
-  const arcs = useMemo(() => {
-    const out: THREE.Line[] = [];
-    let seed = 3;
-    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-    const dir = () => new THREE.Vector3(rnd() - 0.5, rnd() - 0.5, rnd() - 0.5).normalize().multiplyScalar(2.6);
-    for (let i = 0; i < 12; i++) {
-      const a = dir();
-      const b = dir();
-      const mid = a.clone().add(b).normalize().multiplyScalar(2.6 + a.distanceTo(b) * 0.45);
-      const geo = new THREE.BufferGeometry().setFromPoints(new THREE.QuadraticBezierCurve3(a, mid, b).getPoints(60));
-      const mat = new THREE.LineBasicMaterial({ color: i % 3 === 0 ? "#ffffff" : LIME, transparent: true, opacity: 0.8, toneMapped: false });
-      out.push(new THREE.Line(geo, mat));
-    }
-    return out;
-  }, []);
 
-  useFrame((_, d) => {
-    if (!group.current) return;
-    group.current.rotation.y += d * 0.12;
-    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, pointer.y * 0.3 + 0.3, 0.05);
+  const arcs = useMemo(
+    () =>
+      CITIES.map(([lat, lon], i) => {
+        const b = latLon(lat, lon);
+        const mid = HOME.clone().add(b).normalize().multiplyScalar(R + HOME.distanceTo(b) * 0.42);
+        const curve = new THREE.QuadraticBezierCurve3(HOME.clone(), mid, b);
+        const geo = new THREE.BufferGeometry().setFromPoints(curve.getPoints(64));
+        const mat = new THREE.LineBasicMaterial({ color: i % 3 === 0 ? "#ffffff" : LIME, transparent: true, opacity: 0.55, toneMapped: false });
+        return { line: new THREE.Line(geo, mat), curve, end: b, speed: 0.22 + (i % 4) * 0.05, offset: i / CITIES.length };
+      }),
+    []
+  );
+
+  useFrame((state) => {
+    const g = group.current;
+    if (!g) return;
+    const t = state.clock.elapsedTime;
+    // Sway around Bangalore instead of spinning it out of view.
+    g.rotation.y = HOME_YAW + Math.sin(t * 0.18) * 0.35 + pointer.x * 0.12;
+    g.rotation.x = THREE.MathUtils.lerp(g.rotation.x, pointer.y * 0.2 + 0.12, 0.05);
+
+    arcs.forEach((a, i) => {
+      const m = pulses.current[i];
+      if (!m) return;
+      const k = (t * a.speed + a.offset) % 1;
+      m.position.copy(a.curve.getPoint(k));
+      m.scale.setScalar(0.6 + Math.sin(k * Math.PI) * 0.9);
+    });
+    if (halo.current) {
+      const p = (t * 0.8) % 1;
+      halo.current.scale.setScalar(1 + p * 2.4);
+      (halo.current.material as THREE.MeshBasicMaterial).opacity = (1 - p) * 0.9;
+    }
+
+    // Label: only near the contact section and while Bangalore faces the camera.
+    if (label.current) {
+      tmp.copy(HOME);
+      g.localToWorld(tmp);
+      normal.copy(tmp).sub(g.getWorldPosition(new THREE.Vector3())).normalize();
+      const toCam = state.camera.position.clone().sub(tmp).normalize();
+      const facing = smooth01((normal.dot(toCam) - 0.15) / 0.3);
+      const near = smooth01((-84 - state.camera.position.z) / 4);
+      label.current.style.opacity = String(facing * near);
+    }
   });
 
   return (
@@ -406,12 +520,38 @@ function Globe() {
           <pointsMaterial color={COBALT_LIGHT} size={0.035} sizeAttenuation transparent opacity={0.95} toneMapped={false} />
         </points>
         <mesh>
-          <sphereGeometry args={[2.56, 48, 48]} />
+          <sphereGeometry args={[R - 0.04, 48, 48]} />
           <meshBasicMaterial color={BG} transparent opacity={0.85} />
         </mesh>
-        {arcs.map((l, i) => (
-          <primitive key={i} object={l} />
+        {arcs.map((a, i) => (
+          <group key={i}>
+            <primitive object={a.line} />
+            <mesh ref={(el) => (pulses.current[i] = el)}>
+              <sphereGeometry args={[0.035, 10, 10]} />
+              <meshBasicMaterial color="#ffffff" toneMapped={false} />
+            </mesh>
+            <mesh position={a.end}>
+              <sphereGeometry args={[0.03, 8, 8]} />
+              <meshBasicMaterial color={COBALT_LIGHT} toneMapped={false} />
+            </mesh>
+          </group>
         ))}
+        {/* Bangalore */}
+        <group position={HOME} quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), HOME.clone().normalize())}>
+          <mesh>
+            <sphereGeometry args={[0.07, 16, 16]} />
+            <meshBasicMaterial color={LIME} toneMapped={false} />
+          </mesh>
+          <mesh ref={halo}>
+            <ringGeometry args={[0.09, 0.12, 40]} />
+            <meshBasicMaterial color={LIME} transparent toneMapped={false} side={THREE.DoubleSide} />
+          </mesh>
+          <Html center position={[0, 0, 0.05]} zIndexRange={[1, 0]} pointerEvents="none">
+            <div ref={label} className="globe-label" style={{ opacity: 0 }}>
+              <span className="globe-label-dot" /> Bangalore · IST
+            </div>
+          </Html>
+        </group>
       </group>
       <mesh rotation={[Math.PI / 2.2, 0, 0]}>
         <torusGeometry args={[3.5, 0.008, 8, 220]} />
@@ -426,6 +566,8 @@ function Globe() {
 const particleVertex = /* glsl */ `
   uniform float uTime;
   uniform float uPixelRatio;
+  uniform float uShock;
+  uniform vec3 uShockOrigin;
   attribute float aScale;
   attribute float aSeed;
   varying float vAlpha;
@@ -434,11 +576,16 @@ const particleVertex = /* glsl */ `
     vec3 p = position;
     p.y += sin(uTime * 0.3 + aSeed * 6.2831) * 0.2;
     p.x += cos(uTime * 0.2 + aSeed * 6.2831) * 0.2;
+    // Expanding ring pushed out from the core after a click.
+    vec3 away = p - uShockOrigin;
+    float dist = length(away);
+    float wave = exp(-pow(dist - uShock * 10.0, 2.0) / 3.0) * exp(-uShock * 1.1);
+    p += normalize(away + 1e-4) * wave * 1.8;
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
     gl_Position = projectionMatrix * mv;
     gl_PointSize = aScale * uPixelRatio * (28.0 / -mv.z);
     float fade = smoothstep(40.0, 4.0, -mv.z);
-    vAlpha = fade * (0.35 + 0.65 * abs(sin(uTime * 0.8 + aSeed * 40.0)));
+    vAlpha = fade * (0.35 + 0.65 * abs(sin(uTime * 0.8 + aSeed * 40.0))) + wave * 0.9;
     vMix = aSeed;
   }
 `;
@@ -480,12 +627,15 @@ function Particles({ count }: { count: number }) {
       uPixelRatio: { value: Math.min(gl.getPixelRatio(), 2) },
       uColorA: { value: new THREE.Color(COBALT_LIGHT) },
       uColorB: { value: new THREE.Color(LIME) },
+      uShock: { value: 100 },
+      uShockOrigin: { value: CORE_POS.clone() },
     }),
     [gl]
   );
 
   useFrame((state) => {
     uniforms.uTime.value = state.clock.elapsedTime;
+    uniforms.uShock.value = state.clock.elapsedTime - coreFx.shockAt;
   });
 
   return (

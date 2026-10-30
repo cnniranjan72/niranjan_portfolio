@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, ExternalLink, FileText, X } from "lucide-react";
 import { PROFILE } from "./data";
-import { setScrollLocked } from "./primitives";
+import { setScrollLocked, useFocusTrap } from "./primitives";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -16,6 +16,8 @@ export function openResume() {
 export function ResumeViewer() {
   const [open, setOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const panel = useRef<HTMLDivElement>(null);
+  useFocusTrap(open, panel);
 
   useEffect(() => {
     const onOpen = () => setOpen(true);
@@ -48,6 +50,7 @@ export function ResumeViewer() {
           aria-label="Résumé"
         >
           <motion.div
+            ref={panel}
             className="flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#070a12] shadow-[0_40px_120px_rgba(0,0,0,0.8)]"
             initial={{ y: 60, scale: 0.96, opacity: 0 }}
             animate={{ y: 0, scale: 1, opacity: 1 }}
